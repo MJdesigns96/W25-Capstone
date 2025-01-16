@@ -1,6 +1,7 @@
 import ProductSmall from "../components/ProductsSmall";
 import Hero from "../components/Hero";
 import Categories from "../components/Categories";
+import LandingAboutUs from "../components/LandingAboutUs";
 
 const Home = () => {
     return (
@@ -16,8 +17,11 @@ const Home = () => {
                     <div className="row mb-5">
                         <Categories />
                     </div>
-                    <div className='row'>
+                    <div className='row mb-5'>
                         <ProductSmall />
+                    </div>
+                    <div className="row">
+                        <LandingAboutUs />
                     </div>
                 </div>
             </div>
