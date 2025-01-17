@@ -12,7 +12,7 @@ export default function ProductSmall () {
         .catch(error => console.error(error));
     }, []);
 
-    // console.log(products);
+    console.log(products);
     //create a list to render in react
     const productsList = products.map(entry => (
         <div key={entry.id} className='card col-6'>
