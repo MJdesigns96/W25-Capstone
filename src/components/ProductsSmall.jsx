@@ -5,7 +5,7 @@ export default function ProductSmall (props) {
     // //render data from mongodb server and express. Transfer to a component later on.
     const [products, setProducts] = useState(props.props);
 
-    console.log(props.props);
+    // console.log(props.props);
 
     //create a list to render in react
     const productsList = products.map(entry => ( 

@@ -17,7 +17,8 @@ const Products = (props) => {
         <FilterButtons />
         <div className="row mt-5">
           <h2 className="my-4">All Products</h2>
-          <ProductSmall props={props.props} />
+          {/* <ProductSmall props={props.props} /> */}
+          {/* Rn the componenet is rendering on the layout so I need the props to be passed down into each category */}
         </div>
     
         <Outlet />
