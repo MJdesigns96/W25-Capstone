@@ -4,7 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
-import Products from './pages/Products';
+//Product filter Pages
+import Products from './pages/Products/index';
+import Sandals from './pages/Products/Sandals';
+import Boots from './pages/Products/Boots';
 
 
 function App() {
@@ -14,7 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="products" element={<Products />} />
+            <Route path="products" element={<Products />}>
+              <Route path='sandals' element={<Sandals />}/>
+              <Route path='boots' element={<Boots />}/>
+            </Route>
             <Route path="about" element={<About />} />
           </Route>
         </Routes>

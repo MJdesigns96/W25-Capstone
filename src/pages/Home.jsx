@@ -5,10 +5,7 @@ import LandingAboutUs from "../components/LandingAboutUs";
 
 const Home = () => {
     return (
-        <>  
-            <div className='row my-2'>
-                <h1>Home</h1>
-            </div>
+        <> 
             <div className='row'>
                 <div className='col'>
                     <div className="row">
