@@ -13,6 +13,11 @@ export default function FilterButtons(){
                     <button type="button" className="btn btn-light">Boots</button>
                 </Link>
             </div>
+            <div className="col">
+                <Link className="nav-link" to="sneakers">
+                    <button type="button" className="btn btn-light">Sneakers</button>
+                </Link>
+            </div>
         </div>
     )
 }

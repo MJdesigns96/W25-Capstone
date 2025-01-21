@@ -8,18 +8,34 @@ import About from './pages/About';
 import Products from './pages/Products/index';
 import Sandals from './pages/Products/Sandals';
 import Boots from './pages/Products/Boots';
+import Sneakers from './pages/Products/Sneakers';
+
+//import state from server
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 function App() {
+  //render data from mongodb server and express. Transfer to a component later on.
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=> {
+      axios.get('http://localhost:8888/products')
+      .then(response => setProducts(response.data))
+      .catch(error => console.error(error));
+  }, []);
+
+  // console.log(products);
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="products" element={<Products />}>
-              <Route path='sandals' element={<Sandals />}/>
-              <Route path='boots' element={<Boots />}/>
+            <Route index element={<Home props={products}/>} />
+            <Route path="products" element={<Products props={products} />}>
+              <Route path='sandals' element={<Sandals props={products} />}/>
+              <Route path='boots' element={<Boots props={products} />}/>
+              <Route path='sneakers' element={<Sneakers props={products} />}/>
             </Route>
             <Route path="about" element={<About />} />
           </Route>

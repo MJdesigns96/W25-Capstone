@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function ProductSmall () {
-    //render data from mongodb server and express. Transfer to a component later on.
-    const [products, setProducts] = useState([]);
+export default function ProductSmall (props) {
+    // //render data from mongodb server and express. Transfer to a component later on.
+    const [products, setProducts] = useState(props.props);
 
-    //fetch from express server
-    useEffect(()=> {
-        axios.get('http://localhost:8888/products')
-        .then(response => setProducts(response.data))
-        .catch(error => console.error(error));
-    }, []);
+    console.log(props.props);
 
-    console.log(products);
     //create a list to render in react
-    const productsList = products.map(entry => (
+    const productsList = products.map(entry => ( 
         <div key={entry.id} className='card col-6'>
             <div className='card-body text-start'>
                 <h1 className='card-title'>{entry.name}</h1>
@@ -31,7 +25,7 @@ export default function ProductSmall () {
                 <p className='card-text'>Stock: {entry.stock} units</p>
             </div>
         </div>
-    ))
+    ));
 
     return (
         <>
