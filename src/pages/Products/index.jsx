@@ -10,7 +10,7 @@ const Products = (props) => {
           setProductPageProps(props.props);
       }, [props]);
 
-  console.log(props.props);
+  // console.log(props.props);
     return (
       <>
         <h2>Products</h2>
