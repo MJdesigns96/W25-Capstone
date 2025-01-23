@@ -28,8 +28,11 @@ export default function ProductSmall (props) {
     ));
 
     return (
-        <>
-            {productsList}
-        </>
+        <div className="col mb-4">
+            <div className="row">
+                {productsList}
+            </div>
+        </div>
+            
     )
 }

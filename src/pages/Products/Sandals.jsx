@@ -5,8 +5,10 @@ export default function Sandals(props) {
     let filtered = products.filter(item => item.type === "sandal");
 
     return(
-        <div className="row">
-            <h2>Sandals</h2>
+        <div className="row text-start">
+            <h2 className="mb-4">Sandals</h2>
+            <p>Sandals, made for the days when you don't need to go anywhere quick.</p>
+            <p>Feel the sun, wind, and sand on your feet.</p>
             <ProductSmall props={filtered}/>
         </div>
     )

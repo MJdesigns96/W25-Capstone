@@ -22,7 +22,7 @@ export default function Footer() {
                     <Link to="/">
                         <h5>Brand</h5>
                     </Link>
-                    <Link to="/products">
+                    <Link to="/products/all-product">
                         <h5>Products</h5>
                     </Link>
                     <Link to="/about">

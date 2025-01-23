@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 //Product filter Pages
 import Products from './pages/Products/index';
+import AllProducts from './pages/Products/AllProducts';
 import Sandals from './pages/Products/Sandals';
 import Boots from './pages/Products/Boots';
 import Sneakers from './pages/Products/Sneakers';
@@ -33,6 +34,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home props={products}/>} />
             <Route path="products" element={<Products props={products} />}>
+              <Route path='all-products' element={<AllProducts props={products} />}/>
               <Route path='sandals' element={<Sandals props={products} />}/>
               <Route path='boots' element={<Boots props={products} />}/>
               <Route path='sneakers' element={<Sneakers props={products} />}/>

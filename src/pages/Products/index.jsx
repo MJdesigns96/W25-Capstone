@@ -13,14 +13,11 @@ const Products = (props) => {
   // console.log(props.props);
     return (
       <>
-        <h2>Products</h2>
-        <FilterButtons />
-        <div className="row mt-5">
-          <h2 className="my-4">All Products</h2>
-          {/* <ProductSmall props={props.props} /> */}
-          {/* Rn the componenet is rendering on the layout so I need the props to be passed down into each category */}
+        <div className="row my-5">
+          <h2 className="mb-4">Categories</h2>
+          <FilterButtons />
         </div>
-    
+        
         <Outlet />
       </>
     )
