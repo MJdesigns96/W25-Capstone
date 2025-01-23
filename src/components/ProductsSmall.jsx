@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function ProductSmall (props) {
     // //render data from mongodb server and express. Transfer to a component later on.
@@ -23,6 +23,9 @@ export default function ProductSmall (props) {
                 </div>
                 <p className='card-text'>Promotion: {entry.promotion}%</p>
                 <p className='card-text'>Stock: {entry.stock} units</p>
+            </div>
+            <div className="card-footer">
+                <Link to={`/products/all-products/${entry.id}`}>See More</Link>
             </div>
         </div>
     ));
