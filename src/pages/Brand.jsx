@@ -1,9 +1,9 @@
-const About = () => {
+const Brand = () => {
     return (
       <div className="row my-5">
         <div className="col">
           <div className="row">
-            <h1>About</h1>
+            <h1>Brand</h1>
           </div>
           <div className="row my-5">
             <div className="col-6">
@@ -35,4 +35,4 @@ const About = () => {
     );
   };
   
-  export default About;
+  export default Brand;

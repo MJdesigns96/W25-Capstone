@@ -15,9 +15,18 @@ export default function Header() {
                         <li className="nav-item">
                             <Link className="nav-link text-light" to="/products/all-products">Products</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link text-light" to="/about">About</Link>
+                        <li className="nav-item dropdown">
+                            <a  className="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <Link className="nav-link" to="/brand">Brand</Link>
+                                </li>
+                                <li>
+                                    <Link className="nav-link" to="/brand">Dummy</Link>
+                                </li>
+                            </ul>
                         </li>
+
                     </ul>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

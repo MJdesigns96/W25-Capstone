@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //layout tabs
 import Layout from './pages/Layout';
 import Home from './pages/Home';
-import About from './pages/About';
+import Brand from './pages/Brand';
 //Product filter Pages
 import Products from './pages/Products/index';
 import AllProducts from './pages/Products/AllProducts';
@@ -41,7 +41,7 @@ function App() {
               <Route path='boots' element={<Boots props={products} />}/>
               <Route path='sneakers' element={<Sneakers props={products} />}/>
             </Route>
-            <Route path="about" element={<About />} />
+            <Route path="brand" element={<Brand />} />
           </Route>
         </Routes>
       </BrowserRouter>
