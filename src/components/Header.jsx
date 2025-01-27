@@ -22,7 +22,7 @@ export default function Header() {
                                     <Link className="nav-link" to="/brand">Brand</Link>
                                 </li>
                                 <li>
-                                    <Link className="nav-link" to="/brand">Dummy</Link>
+                                    <Link className="nav-link" to="/blogs/short-blogs">Blog</Link>
                                 </li>
                             </ul>
                         </li>

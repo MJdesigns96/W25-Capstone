@@ -5,6 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import Brand from './pages/Brand';
+
+//Blog filter Pages
+import Blogs from './pages/Blogs';
+import ShortBlogs from './pages/Blogs/ShortBlogs';
+import BlogPost from './pages/Blogs/BlogPost';
 //Product filter Pages
 import Products from './pages/Products/index';
 import AllProducts from './pages/Products/AllProducts';
@@ -21,12 +26,20 @@ import axios from 'axios';
 function App() {
   //render data from mongodb server and express. Transfer to a component later on.
   const [products, setProducts] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(()=> {
       axios.get('http://localhost:8888/products')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);
+
+  useEffect(() => {
+      axios.get('http://localhost:8888/blogs')
+      .then(response => setBlogs(response.data))
+      .catch(error => console.error(error))
+  }, []);
+
 
   return (
     <>
@@ -42,6 +55,10 @@ function App() {
               <Route path='sneakers' element={<Sneakers props={products} />}/>
             </Route>
             <Route path="brand" element={<Brand />} />
+            <Route path='blogs' element={<Blogs props={blogs} />}>
+              <Route path="short-blogs" element={<ShortBlogs props={blogs}/>}/>
+              <Route path=':blogId' element={<BlogPost props={blogs} />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
