@@ -17,6 +17,8 @@ import Sandals from './pages/Products/Sandals';
 import Boots from './pages/Products/Boots';
 import Sneakers from './pages/Products/Sneakers';
 import ProductDetails from './components/ProductDetail';
+//Account filter Pages
+import Accounts from './pages/Account';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -58,6 +60,9 @@ function App() {
             <Route path='blogs' element={<Blogs props={blogs} />}>
               <Route path="short-blogs" element={<ShortBlogs props={blogs}/>}/>
               <Route path=':blogId' element={<BlogPost props={blogs} />} />
+            </Route>
+            <Route path="accounts" element={<Accounts />}>
+              
             </Route>
           </Route>
         </Routes>
