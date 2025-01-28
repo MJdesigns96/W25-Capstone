@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Profile from "../assets/user-solid.svg"
 
 export default function Header() {
     return (
@@ -32,6 +33,11 @@ export default function Header() {
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-info" type="submit">Search</button>
                     </form>
+                    <div className="mx-5">
+                        <Link to='/accounts'>
+                            <img src={Profile} alt="profile icon" width={32} style={{color:"#fff"}} />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </nav>
