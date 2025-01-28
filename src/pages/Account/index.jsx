@@ -4,7 +4,6 @@ import Details from "./Details";
 const Accounts = () => {
     return(
         <>
-            <h1>Accounts</h1>
             <Details />
 
             <Outlet />
