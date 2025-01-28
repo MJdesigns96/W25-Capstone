@@ -34,7 +34,7 @@ export default function Header() {
                         <button className="btn btn-info" type="submit">Search</button>
                     </form>
                     <div className="mx-5">
-                        <Link to='/accounts'>
+                        <Link to='/accounts/details'>
                             <img src={Profile} alt="profile icon" width={32} style={{color:"#fff"}} />
                         </Link>
                     </div>

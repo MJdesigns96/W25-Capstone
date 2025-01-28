@@ -37,11 +37,11 @@ export default function Details() {
     }
 
     return(
-        <div className="row">
+        <div className="row my-5">
             <div className="col"></div>
             <div className="col-6 text-start">
                 <div className="row my-3">
-                    <h2>Hi, {tempAccount.name}</h2>
+                    <h2>Hi, {accountDetails.name}</h2>
                     <p>Welcome to your account details.</p>
                 </div>
                 <h4>My Details:</h4>

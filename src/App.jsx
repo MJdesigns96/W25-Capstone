@@ -19,6 +19,8 @@ import Sneakers from './pages/Products/Sneakers';
 import ProductDetails from './components/ProductDetail';
 //Account filter Pages
 import Accounts from './pages/Account';
+import Details from './pages/Account/Details'
+import Register from './pages/Account/Register';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -62,7 +64,8 @@ function App() {
               <Route path=':blogId' element={<BlogPost props={blogs} />} />
             </Route>
             <Route path="accounts" element={<Accounts />}>
-              
+              <Route path="details" element={<Details />} />
+              <Route path="register" element={<Register />} />
             </Route>
           </Route>
         </Routes>
