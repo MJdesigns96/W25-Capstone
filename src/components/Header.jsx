@@ -8,7 +8,7 @@ export default function Header() {
 
     let accountRedirect;
     if (!booleanValue) {
-        accountRedirect = "/accounts/register"
+        accountRedirect = "/accounts/login"
     } else {
         accountRedirect = "/accounts/details"
     }
