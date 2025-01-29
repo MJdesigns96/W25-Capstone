@@ -1,9 +1,16 @@
 import { useState } from "react"
 import { useNavigate, Link  } from "react-router-dom"
+import axios from 'axios';
 
 export default function Register() {
     // states
     const [passwordShown, setPasswordShown] = useState(false);
+    const [formData, setFormData] = useState({
+        id: 1,
+        name: "",
+        email: "",
+        password: ""
+    });
 
     const showPass = () => {
         setPasswordShown(passwordShown ? false : true);
@@ -11,13 +18,22 @@ export default function Register() {
     //use history to redirect
     let navigateTo = useNavigate();
 
-    const submitFunction = (e) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name] : value});
+    };
+
+    const submitFunction = async (e) => {
+        console.log(formData);
         e.preventDefault();
-        // get a server method to send the data to the server then use session info to show user their info once redirected
-        console.log(e.target.name.value);
-        console.log(e.target.email.value);
-        console.log(e.target.password.value);
-        navigateTo('/accounts/login');
+
+        try {
+            const response = await axios.post('http://localhost:8888/registerUser', formData);
+            console.log('Form data submitted', response.data);
+            navigateTo('/accounts/login');
+        } catch (err) {
+            console.error("Error", err);
+        }
     }
 
     return(
@@ -26,25 +42,26 @@ export default function Register() {
             <div className="col-6 text-start">
                 <h1 className="my-3">Register</h1>
                 <form onSubmit={submitFunction}>
+                    <input type="hidden" id="id" name="id" value={formData.id} />
                     <div className="row my-2">
                         <h3>
                             <label htmlFor="name">Name: </label>
                             <span> </span>
-                            <input type="text" id="name" name="name" />
+                            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
                         </h3>
                     </div>
                     <div className="row my-2">
                         <h3>
                             <label htmlFor="email">Email: </label>
                             <span> </span>
-                            <input type="email" id="email" name="email" />
+                            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
                         </h3>
                     </div>
                     <div className="row my-2">
                         <h3>
                             <label htmlFor="password">Password: </label>
                             <span> </span>
-                            <input type={passwordShown ? "text" : "password"} id="password" name="password" />
+                            <input type={passwordShown ? "text" : "password"} id="password" name="password" value={formData.password} onChange={handleChange} />
                         </h3>
                         <small>
                             <button type="button" className="btn btn-light shadow-none" onClick={showPass}> Show Password</button>
@@ -52,7 +69,7 @@ export default function Register() {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <button type="submit" className="btn btn-primary">Save</button>
+                            <button type="submit" className="btn btn-primary">Register</button>
                         </div>
                         <div className="col">
                             <Link to='/accounts/login'>
