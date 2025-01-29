@@ -2,6 +2,17 @@ import { Link } from "react-router-dom"
 import Profile from "../assets/user-solid.svg"
 
 export default function Header() {
+    //check the loggedIn status from local storage for profile redirect
+    let logStatus = localStorage.getItem('loggedIn');
+    let booleanValue = logStatus === "true";
+
+    let accountRedirect;
+    if (!booleanValue) {
+        accountRedirect = "/accounts/register"
+    } else {
+        accountRedirect = "/accounts/details"
+    }
+
     return (
         <nav className="navbar navbar-expand-lg bg-primary row">
             <div className="container-fluid">
@@ -34,7 +45,7 @@ export default function Header() {
                         <button className="btn btn-info" type="submit">Search</button>
                     </form>
                     <div className="mx-5">
-                        <Link to='/accounts/details'>
+                        <Link to={accountRedirect}>
                             <img src={Profile} alt="profile icon" width={32} style={{color:"#fff"}} />
                         </Link>
                     </div>

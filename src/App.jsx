@@ -44,6 +44,10 @@ function App() {
       .catch(error => console.error(error))
   }, []);
 
+  //local storage items
+  localStorage.setItem('loggedIn', false);
+  const loggedIn = localStorage.getItem('loggedIn');
+  // console.log(`logged in: ${loggedIn}.`);
 
   return (
     <>

@@ -21,29 +21,30 @@ export default function Register() {
     }
 
     return(
-        <div className="row">
-            <div className="col">
-                <h1>Register</h1>
+        <div className="row my-3">
+            <div className="col"></div>
+            <div className="col-6 text-start">
+                <h1 className="my-3">Register</h1>
                 <form onSubmit={submitFunction}>
                     <div className="row my-2">
                         <h3>
                             <label htmlFor="name">Name: </label>
                             <span> </span>
-                            <input type="text" id="name" name="name" placeholder="Name"/>
+                            <input type="text" id="name" name="name" />
                         </h3>
                     </div>
                     <div className="row my-2">
                         <h3>
                             <label htmlFor="email">Email: </label>
                             <span> </span>
-                            <input type="email" id="email" name="email" placeholder="Email"/>
+                            <input type="email" id="email" name="email" />
                         </h3>
                     </div>
                     <div className="row my-2">
                         <h3>
                             <label htmlFor="password">Password: </label>
                             <span> </span>
-                            <input type={passwordShown ? "text" : "password"} id="password" name="password" placeholder="Password" />
+                            <input type={passwordShown ? "text" : "password"} id="password" name="password" />
                         </h3>
                         <small>
                             <button type="button" className="btn btn-light shadow-none" onClick={showPass}> Show Password</button>
@@ -52,6 +53,7 @@ export default function Register() {
                     <button type="submit" className="btn btn-primary">Save</button>
                 </form>
             </div>
+            <div className="col"></div>
         </div>
     )
 }

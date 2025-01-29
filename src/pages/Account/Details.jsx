@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function Details() {
     // temporary data
@@ -10,6 +11,18 @@ export default function Details() {
         shipping: "123 Alpha St.",
         postal: "m6b7h5"
     };
+
+    //redirect to register if not signed in through local storage
+    let logStatus = localStorage.getItem('loggedIn');
+    let booleanValue = logStatus === "true";
+    let navigateTo = useNavigate();
+
+    useEffect(() => {
+        if (!booleanValue) {
+                navigateTo('/accounts/register');
+            }
+    }, [])
+    
     // states
     const [passwordShown, setPasswordShown] = useState(false);
     const [accountDetails, setAccountDetails] = useState(tempAccount);
