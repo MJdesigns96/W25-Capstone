@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import Brand from './pages/Brand';
-
 //Blog filter Pages
 import Blogs from './pages/Blogs';
 import ShortBlogs from './pages/Blogs/ShortBlogs';
@@ -44,6 +43,8 @@ function App() {
       .then(response => setBlogs(response.data))
       .catch(error => console.error(error))
   }, []);
+
+  //make a call to the server to get UserData from the db; pass the id down the props to Accounts so new users will be able to increase their id and login useres will have validation
 
   //local storage items
   localStorage.setItem('loggedIn', false);

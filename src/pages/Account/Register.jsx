@@ -3,14 +3,15 @@ import { useNavigate, Link  } from "react-router-dom"
 import axios from 'axios';
 
 export default function Register() {
-    // states
-    const [passwordShown, setPasswordShown] = useState(false);
-    const [formData, setFormData] = useState({
+    let templateObj = {
         id: 1,
         name: "",
         email: "",
         password: ""
-    });
+    };
+    // states
+    const [passwordShown, setPasswordShown] = useState(false);
+    const [formData, setFormData] = useState(templateObj);
 
     const showPass = () => {
         setPasswordShown(passwordShown ? false : true);
@@ -24,16 +25,14 @@ export default function Register() {
     };
 
     const submitFunction = async (e) => {
-        console.log(formData);
         e.preventDefault();
-
         try {
             const response = await axios.post('http://localhost:8888/registerUser', formData);
             console.log('Form data submitted', response.data);
             navigateTo('/accounts/login');
         } catch (err) {
             console.error("Error", err);
-        }
+        };
     }
 
     return(
@@ -41,7 +40,7 @@ export default function Register() {
             <div className="col"></div>
             <div className="col-6 text-start">
                 <h1 className="my-3">Register</h1>
-                <form onSubmit={submitFunction}>
+                <form action="post" onSubmit={submitFunction}>
                     <input type="hidden" id="id" name="id" value={formData.id} />
                     <div className="row my-2">
                         <h3>
