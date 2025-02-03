@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default function Login() {
+    // console.log(localStorage.getItem('loggedIn'));
     // states
     const [passwordShown, setPasswordShown] = useState(false);
 
@@ -12,12 +14,24 @@ export default function Login() {
     //use history to redirect
     let navigateTo = useNavigate();
 
-    const submitFunction = (e) => {
+    const submitFunction = async (e) => {
         e.preventDefault();
         // get a server method to send the data to the server then use session info to show user their info once redirected
-        console.log(e.target.name.value);
-        console.log(e.target.email.value);
-        console.log(e.target.password.value);
+        let userBody = {
+            email: e.target.email.value,
+            password: e.target.password.value
+        }
+        try {
+            const response = await axios.post('http://localhost:8888/findUser', userBody);
+            // console.log('Found', response.data);
+            localStorage.setItem("loggedIn", true);
+            localStorage.setItem('userId', response.data[0].id);
+            localStorage.setItem('userName', response.data[0].name);
+            localStorage.setItem('userEmail', response.data[0].email);
+            localStorage.setItem('userPassword', response.data[0].password);
+        } catch (err) {
+            console.error("Error", err);
+        };
         navigateTo('/accounts/details');
     }
 

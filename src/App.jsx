@@ -54,8 +54,8 @@ function App() {
   //make a call to the server to get UserData from the db; pass the id down the props to Accounts so new users will be able to increase their id and login useres will have validation
 
   //local storage items
-  localStorage.setItem('loggedIn', false);
-  const loggedIn = localStorage.getItem('loggedIn');
+  // localStorage.setItem('loggedIn', false);
+  // const loggedIn = localStorage.getItem('loggedIn');
   // console.log(users);
   // console.log(`logged in: ${loggedIn}.`);
 

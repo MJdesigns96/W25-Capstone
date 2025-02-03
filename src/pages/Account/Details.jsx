@@ -2,14 +2,16 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 export default function Details() {
+    let items = {...localStorage};
+    console.log(items);
     // temporary data
     const tempAccount = {
-        id: 1,
-        name: "test",
-        email:"test@test.com",
-        password: "pass123",
-        shipping: "123 Alpha St.",
-        postal: "m6b7h5"
+        id: localStorage.getItem('userId'),
+        name: localStorage.getItem('userName'),
+        email:localStorage.getItem('userEmail'),
+        password: localStorage.getItem('userPassword'),
+        shipping: "",
+        postal: ""
     };
 
     //redirect to register if not signed in through local storage
@@ -19,7 +21,7 @@ export default function Details() {
 
     useEffect(() => {
         if (!booleanValue) {
-                navigateTo('/accounts/register');
+                navigateTo('/accounts/login');
             }
     }, [])
     
@@ -47,6 +49,15 @@ export default function Details() {
         console.log(e.target.name.value);
         console.log(e.target.email.value);
         console.log(e.target.password.value);
+    }
+
+    const logOut = () => {
+        localStorage.setItem("userId", "");
+        localStorage.setItem("userName", "");
+        localStorage.setItem("userEmail", "");
+        localStorage.setItem("userPassword", "");
+        localStorage.setItem("loggedIn", false);
+        navigateTo('/accounts/login');
     }
 
     return(
@@ -98,7 +109,14 @@ export default function Details() {
                             <input type="text" id="postal" name="postal" value={accountDetails.postal} onChange={handleChange}/>
                         </h3>
                     </div>
-                    <button type="submit" className="btn btn-primary">Save</button>
+                    <div className="row">
+                        <div className="col">
+                            <button type="submit" className="btn btn-primary">Save</button>
+                        </div>
+                        <div className="col">
+                            <button type="button" className="btn btn-danger" onClick={logOut}>Log Out</button>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div className="col"></div>
