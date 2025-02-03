@@ -10,23 +10,22 @@ export default function ProductSmall (props) {
     //create a list to render in react
     const productsList = products.map(entry => ( 
         <div key={entry.id} className='card col-6'>
-            <div className='card-body text-start'>
-                <h1 className='card-title'>{entry.name}</h1>
-                <p className='card-text'>Description Short: {entry.descriptionShort}</p>
-                <h3 className='card-text'>Price: ${entry.price}</h3>
-                <div className='card-text'>
-                Sizes: {entry.sizes.map(size => {
-                    if (size.small) {
-                        return <p key={size._id}>small</p>
-                    }
-                    })}
+            <Link to={`/products/all-products/${entry.id}`} style={{textDecoration: "none", color:"black"}}>
+                <div className='card-body text-start'>
+                    <h1 className='card-title'>{entry.name}</h1>
+                    <p className='card-text'>Description Short: {entry.descriptionShort}</p>
+                    <h3 className='card-text'>Price: ${entry.price}</h3>
+                    <div className='card-text'>
+                    Sizes: {entry.sizes.map(size => {
+                        if (size.small) {
+                            return <p key={size._id}>small</p>
+                        }
+                        })}
+                    </div>
+                    <p className='card-text'>Promotion: {entry.promotion}%</p>
+                    <p className='card-text'>Stock: {entry.stock} units</p>
                 </div>
-                <p className='card-text'>Promotion: {entry.promotion}%</p>
-                <p className='card-text'>Stock: {entry.stock} units</p>
-            </div>
-            <div className="card-footer">
-                <Link to={`/products/all-products/${entry.id}`}>See More</Link>
-            </div>
+            </Link>
         </div>
     ));
 
