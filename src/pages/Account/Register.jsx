@@ -2,13 +2,16 @@ import { useState } from "react"
 import { useNavigate, Link  } from "react-router-dom"
 import axios from 'axios';
 
-export default function Register() {
+export default function Register(props) {
+    let usersListLength = props.props.length;
+
     let templateObj = {
-        id: 1,
+        id: usersListLength  + 1,
         name: "",
         email: "",
         password: ""
     };
+
     // states
     const [passwordShown, setPasswordShown] = useState(false);
     const [formData, setFormData] = useState(templateObj);
