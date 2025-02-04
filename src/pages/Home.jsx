@@ -9,7 +9,7 @@ const Home = (props) => {
     useEffect(() => {
         // console.log(props);
         setHomePageProducts(props);
-    }, [props]);
+    }, []);
 
     // console.log(homePageProducts.props);
 
