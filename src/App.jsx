@@ -21,6 +21,8 @@ import Accounts from './pages/Account';
 import Details from './pages/Account/Details'
 import Register from './pages/Account/Register';
 import Login from './pages/Account/Login';
+//checkout page
+import Checkout from './pages/Checkout/index';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -74,6 +76,7 @@ function App() {
               <Route path='login' element={<Login />} />
               <Route path="register" element={<Register props={users} />} />
             </Route>
+            <Route path="checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </BrowserRouter>
