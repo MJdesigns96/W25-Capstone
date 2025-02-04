@@ -1,6 +1,8 @@
 export default function Checkout() {
     let items = {...localStorage};
-    console.log(items);
+    let strObjFromStorage = items.cart;
+    let cart = JSON.parse(strObjFromStorage);
+    console.log(cart);
 
     return (
         <>
