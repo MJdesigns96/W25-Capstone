@@ -25,7 +25,7 @@ export default function Footer() {
                     <Link to="/products/all-products">
                         <h5>Products</h5>
                     </Link>
-                    <Link to="/about">
+                    <Link to="/brand">
                         <h5>About</h5>
                     </Link>
                 </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import Profile from "../assets/user-solid.svg"
+import Cart from "../assets/cart.svg"
 
 export default function Header() {
     //check the loggedIn status from local storage for profile redirect
@@ -44,9 +45,14 @@ export default function Header() {
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-info" type="submit">Search</button>
                     </form>
-                    <div className="mx-5">
+                    <div className="mx-3">
                         <Link to={accountRedirect}>
                             <img src={Profile} alt="profile icon" width={32} style={{color:"#fff"}} />
+                        </Link>
+                    </div>
+                    <div className="mx-3">
+                        <Link to='/checkout'>
+                            <img src={Cart} alt="shopping cart" width={32} style={{color:"#fff"}} />
                         </Link>
                     </div>
                 </div>
