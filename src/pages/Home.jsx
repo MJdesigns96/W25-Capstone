@@ -28,7 +28,9 @@ const Home = (props) => {
                     <div className="row mb-5">
                         <Categories />
                     </div>
-                    <div className='row mb-5'>
+                    <div className='row mb-5 text-start'>
+                        <h3>Products</h3>
+                        <small className="mb-3">Some small text about things.</small>
                         {passProductsProps}
                     </div>
                     <div className="row">
