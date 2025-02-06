@@ -39,7 +39,7 @@ export default function ListProducts(props) {
         <>
             <div className="row mt-5 mx-5 text-start">
                 <div className="col-2">
-                    <Link to={`/admin/add-products`}>
+                    <Link to={`/admin/add-product`}>
                         <button type="button" className="btn btn-primary">Add Product</button>
                     </Link>
                 </div>

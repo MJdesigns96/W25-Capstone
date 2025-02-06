@@ -27,6 +27,7 @@ import Checkout from './pages/Checkout/index';
 import Admin from './pages/Admin';
 import Dashboard from './pages/Admin/Dashboard';
 import ListProducts from './pages/Admin/ListProducts';
+import AddProduct from './pages/Admin/AddProduct';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -85,7 +86,7 @@ function App() {
               <Route path='dashboard' element={<Dashboard />} />
               {/* product admin features */}
               <Route path='list-products' element={<ListProducts props={products} />} />
-              <Route path='add-product' />
+              <Route path='add-product' element={<AddProduct props={products} />} />
               <Route path='update-product' />
               <Route path='delete-product' />
               {/* order admin features */}

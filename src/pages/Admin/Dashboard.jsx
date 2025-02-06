@@ -8,21 +8,11 @@ export default function Dashboard() {
                 <p>Welcome Admin! Listed below are a few actions you can access.</p>
             </div>
             <div className="row">
-                <div className="col-4">
+                <div className="col-4 align-self-center">
                     <h3>Product</h3>
                     <div className="row my-3">
                         <Link to="/admin/list-products">
-                            <button className="btn btn-secondary" type="button">Add Product</button>
-                        </Link>
-                    </div>
-                    <div className="row my-3">
-                        <Link to="/admin/update-product">
-                            <button className="btn btn-secondary" type="button">Update Product</button>
-                        </Link>
-                    </div>
-                    <div className="row my-3">
-                        <Link to="/admin/delete-product">
-                            <button className="btn btn-secondary" type="button">Delete Product</button>
+                            <button className="btn btn-secondary" type="button">Products List</button>
                         </Link>
                     </div>
                 </div>
