@@ -23,6 +23,10 @@ import Register from './pages/Account/Register';
 import Login from './pages/Account/Login';
 //checkout page
 import Checkout from './pages/Checkout/index';
+//Admin pages
+import Admin from './pages/Admin';
+import Dashboard from './pages/Admin/Dashboard';
+import ListProducts from './pages/Admin/ListProducts';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -77,6 +81,22 @@ function App() {
               <Route path="register" element={<Register props={users} />} />
             </Route>
             <Route path="checkout" element={<Checkout />} />
+            <Route path="admin"element={<Admin props={products} />}>
+              <Route path='dashboard' element={<Dashboard />} />
+              {/* product admin features */}
+              <Route path='list-products' element={<ListProducts props={products} />} />
+              <Route path='add-product' />
+              <Route path='update-product' />
+              <Route path='delete-product' />
+              {/* order admin features */}
+              <Route path='users-list' />
+              <Route path='orders-list' />
+              <Route path='stock-list' />
+              {/* blog admin features */}
+              <Route path='blogs-list' />
+              <Route path='blogs-add' />
+              <Route path='blogs-delete' />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

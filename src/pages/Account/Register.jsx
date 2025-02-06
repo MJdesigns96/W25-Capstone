@@ -3,10 +3,12 @@ import { useNavigate, Link  } from "react-router-dom"
 import axios from 'axios';
 
 export default function Register(props) {
+    // get the length of the list of users to add the new user's id
     let usersListLength = props.props.length;
 
+    // a template object to save the form data to before sending it to the db
     let templateObj = {
-        id: usersListLength  + 1,
+        id: usersListLength + 1,
         name: "",
         email: "",
         password: ""
@@ -16,17 +18,20 @@ export default function Register(props) {
     const [passwordShown, setPasswordShown] = useState(false);
     const [formData, setFormData] = useState(templateObj);
 
+    //password toggle fxn
     const showPass = () => {
         setPasswordShown(passwordShown ? false : true);
     }
     //use history to redirect
     let navigateTo = useNavigate();
 
+    //handle the change in form data
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name] : value});
     };
 
+    //once submitted use axios and server method to add the form to mongodb
     const submitFunction = async (e) => {
         e.preventDefault();
         try {
