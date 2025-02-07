@@ -89,6 +89,7 @@ export default function UpdateProduct(props) {
             const response = await axios.post('http://localhost:8888/updateProduct', product);
             console.log('Form data submitted', response.data);
             navigateTo('/admin/list-products');
+            navigateTo(0);
         } catch (err) {
             console.error("Error", err);
         };
