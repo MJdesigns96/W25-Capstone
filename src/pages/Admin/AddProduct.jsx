@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function AddProduct(props) {
     // use props to find the next item's id
     const newProductId = props.props.length + 1;
-    console.log(newProductId);
+    // console.log(newProductId);
 
     //use history to redirect
     let navigateTo = useNavigate();
