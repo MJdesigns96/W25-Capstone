@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 export default function ProductLarge (props) {
-    //render data from mongodb server and express. Transfer to a component later on.
     const [product, setProduct] = useState(props.props[0]);
 
-    // restructure so that the item is no longer on a card and can look more like a ecommerce section with upper and lower areas
     const productsItem = (
         <>
             <div className="row mb-5">

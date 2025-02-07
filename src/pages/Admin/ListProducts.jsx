@@ -23,7 +23,7 @@ export default function ListProducts(props) {
             <td>{entry.stock}</td>
             <td>{entry.promotion}</td>
             <td>
-                <Link to={`/admin/edit-product/${entry.id}`}>
+                <Link to={`/admin/update-product/${entry.id}`}>
                     <button type="button" className="btn btn-info">Edit</button>
                 </Link>
             </td>
