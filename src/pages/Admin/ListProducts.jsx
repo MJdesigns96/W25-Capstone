@@ -7,7 +7,7 @@ export default function ListProducts(props) {
     //set state from props
     useEffect(() => {
         setProducts(props.props);
-    }, []);
+    }, [props]);
     // console.log(products);
 
     //nav button to go back
