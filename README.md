@@ -7,20 +7,20 @@ This project is meant to emulate and recreate common elements found across the c
 This project is connected to MongoDB through Mongoose with Express and Node.js running in the background for its server.
 The client components are run through React + Vite.
 
-###Challenges
+### Challenges
 One of the key challenges I've faced with this project is the saving and retreival of data through MongoDB. The data needing to be in JSON format has made it challenging to inplement methods throughout this website due to the constant conversion between objects, arrays, and storing the data into localstorage.
 
-###Future
+### Future
 - Implement admin validation through the login window to direct the admin user to the admin dashboard if validated
 - Connect to a payment processing application and allow payments to go through
 - If a payment has gone through, save the information in a orders table that can be accessed by Users and Admin
 
-##Installation
+## Installation
 To install the dependencies "npm i" should be run to install all node dependencies.
 Then "npm run dev" should open the application locally.
 
-###Client side
+### Client side
 This React portion will run on its own, however, no data can be recieved unless a server environment is also being used.
 
-###Server
+### Server
 https://github.com/MJdesigns96/W25-capstone-server
