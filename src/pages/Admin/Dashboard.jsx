@@ -7,7 +7,7 @@ export default function Dashboard() {
                 <h1>Admin</h1>
                 <p>Welcome Admin! Listed below are a few actions you can access.</p>
             </div>
-            <div className="row">
+            <div className="row mb-5">
                 <div className="col-4 align-self-center">
                     <h3>Product</h3>
                     <div className="row my-3">
@@ -16,7 +16,7 @@ export default function Dashboard() {
                         </Link>
                     </div>
                 </div>
-                <div className="col-4">
+                <div className="col-4 align-self-center">
                     <h3>Order</h3>
                     <div className="row my-3">
                         <Link to="/admin/users-list">
@@ -28,27 +28,12 @@ export default function Dashboard() {
                             <button className="btn btn-secondary" type="button">View Orders</button>
                         </Link>
                     </div>
-                    <div className="row my-3">
-                        <Link to="/admin/stock-list">
-                            <button className="btn btn-secondary" type="button">View Stock</button>
-                        </Link>
-                    </div>
                 </div>
-                <div className="col-4">
+                <div className="col-4 align-self-center">
                     <h3>Blog</h3>
                     <div className="row my-3">
                         <Link to="/admin/blogs-list">
                             <button className="btn btn-secondary" type="button">View Blogs</button>
-                        </Link>
-                    </div>
-                    <div className="row my-3">
-                        <Link to="/admin/blogs-add">
-                            <button className="btn btn-secondary" type="button">Add Blogs</button>
-                        </Link>
-                    </div>
-                    <div className="row my-3">
-                        <Link to="/admin/blogs-delete">
-                            <button className="btn btn-secondary" type="button">Delete Blogs</button>
                         </Link>
                     </div>
                 </div>

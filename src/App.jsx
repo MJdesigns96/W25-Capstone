@@ -67,7 +67,9 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
+            {/* Landing page */}
             <Route index element={<Home props={products}/>} />
+            {/* Product pages */}
             <Route path="products" element={<Products props={products} />}>
               <Route path='all-products' element={<AllProducts props={products} />}/>
               <Route path='all-products/:productId' element={<ProductDetails props={products}/>} />
@@ -75,17 +77,21 @@ function App() {
               <Route path='boots' element={<Boots props={products} />}/>
               <Route path='sneakers' element={<Sneakers props={products} />}/>
             </Route>
+            {/* About section pages */}
             <Route path="brand" element={<Brand />} />
             <Route path='blogs' element={<Blogs props={blogs} />}>
               <Route path="short-blogs" element={<ShortBlogs props={blogs}/>}/>
               <Route path=':blogId' element={<BlogPost props={blogs} />} />
             </Route>
+            {/* Account pages */}
             <Route path="accounts" element={<Accounts props={users} />}>
               <Route path="details" element={<Details />} />
               <Route path='login' element={<Login />} />
               <Route path="register" element={<Register props={users} />} />
             </Route>
+            {/* checkout page */}
             <Route path="checkout" element={<Checkout />} />
+            {/* admin pages */}
             <Route path="admin"element={<Admin props={products} />}>
               <Route path='dashboard' element={<Dashboard />} />
               {/* product admin features */}
@@ -96,7 +102,6 @@ function App() {
               {/* order admin features */}
               <Route path='users-list' />
               <Route path='orders-list' />
-              <Route path='stock-list' />
               {/* blog admin features */}
               <Route path='blogs-list' />
               <Route path='blogs-add' />
