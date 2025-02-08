@@ -1,6 +1,7 @@
 import './App.css'
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from './components/ScrollTotop';
 //layout tabs
 import Layout from './pages/Layout';
 import Home from './pages/Home';
@@ -29,6 +30,7 @@ import Dashboard from './pages/Admin/Dashboard';
 import ListProducts from './pages/Admin/ListProducts';
 import AddProduct from './pages/Admin/AddProduct';
 import UpdateProduct from './pages/Admin/UpdateProduct';
+import DeleteProduct from './pages/Admin/DeleteProduct';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -62,6 +64,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home props={products}/>} />
@@ -89,7 +92,7 @@ function App() {
               <Route path='list-products' element={<ListProducts props={products} />} />
               <Route path='add-product' element={<AddProduct props={products} />} />
               <Route path='update-product/:productId' element={<UpdateProduct props={products} />} />
-              <Route path='delete-product' />
+              <Route path='delete-product/:productId' element={<DeleteProduct props={products} />} />
               {/* order admin features */}
               <Route path='users-list' />
               <Route path='orders-list' />

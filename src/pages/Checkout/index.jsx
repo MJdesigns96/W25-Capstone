@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
     const [cart, setCart] = useState();
@@ -51,8 +52,12 @@ export default function Checkout() {
     }    
     checkoutItems();
 
+    //use history to redirect
+    let navigateTo = useNavigate();
+    
     const clearLocal = () => {
         localStorage.clear();
+        navigateTo(0);
     }
 
     let rightSide;
