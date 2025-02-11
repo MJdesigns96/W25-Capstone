@@ -1,0 +1,30 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function CheckoutButton(props) {
+    let checkoutOrder = {
+        orderId: props.orderId,
+        userId: props.userId,
+        items: props.items,
+        total: props.total,
+        paid: true,
+        shipped: false,
+        completed: false
+    };
+
+    const submitOrder = async(e) => {
+        e.preventDefault();
+        
+        console.log(checkoutOrder);
+        try {
+            const response = await axios.post('http://localhost:8888/newOrder', checkoutOrder);
+            console.log('Form data submitted', response.data);
+        } catch (err) {
+            console.error("Error", err);
+        };
+    }
+
+    return (
+        <button type="button" className="btn btn-primary mb-5" onClick={submitOrder}>Checkout</button>
+    )
+}

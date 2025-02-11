@@ -43,6 +43,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:8888/users')
@@ -60,6 +61,12 @@ function App() {
       axios.get('http://localhost:8888/blogs')
       .then(response => setBlogs(response.data))
       .catch(error => console.error(error))
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://localhost:8888/orders')
+    .then(response => setOrders(response.data))
+    .catch(error => console.error(error))
   }, []);
 
   return (
@@ -91,7 +98,7 @@ function App() {
               <Route path="register" element={<Register props={users} />} />
             </Route>
             {/* checkout page */}
-            <Route path="checkout" element={<Checkout />} />
+            <Route path="checkout" element={<Checkout props={orders} />} />
             {/* admin pages */}
             <Route path="admin"element={<Admin props={products} />}>
               <Route path='dashboard' element={<Dashboard />} />

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CheckoutButton from "../../components/CheckoutButton";
 
-export default function Checkout() {
+
+export default function Checkout(props) {
     const [cart, setCart] = useState();
     let items = {...localStorage};
     let userCart;
@@ -97,6 +99,11 @@ export default function Checkout() {
         )
     }
 
+    //variables to pass down to checkout button
+    let orderId = props.props.length + 1;
+    let userId = items.userId;
+    let checkoutCart = JSON.parse(items.cart)
+
     return (
         <>
             <div className="row">
@@ -105,6 +112,7 @@ export default function Checkout() {
                 </div>
                 {rightSide}
             </div>
+            { items.cart === undefined ? "" : <CheckoutButton orderId={orderId} userId={userId} items={checkoutCart} total={total} /> }
             <button type="button" className="btn btn-primary mb-5" onClick={clearLocal}>Clear Local</button>
         </>
     )
