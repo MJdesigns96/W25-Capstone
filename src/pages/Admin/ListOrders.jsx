@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function ListUsers(props) {
-    //state
-    const [users, setUsers] = useState();
+export default function ListOrders (props) {
+    const [orders, setOrders] = useState();
     useEffect(() => {
-        setUsers(props.props);
+        setOrders(props.props);
     }, [props]);
 
-    const usersList = users?.map(user => (
-        <tr key={user.id}>
-            <th scope="row">{user.id}</th>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.password}</td>
+    const ordersList = orders?.map(entry => (
+        <tr key={entry.id}>
+            <th scope="row">{entry.id}</th>
+            <td>{ entry.userId ? entry.userId : "Na" }</td>
+            <td>${ entry.total }</td>
+            <td>{ entry.paid ? "Yes" : "No" }</td>
+            <td>{ entry.shipped ? "Yes" : "No" }</td>
+            <td>{ entry.completed ? "Yes" : "No" }</td>
         </tr>
     ))
 
-    return(
+    return (
         <div className="row">
             <div className="col">
                 <div className="row mt-5 mx-5 text-start">
@@ -28,20 +29,22 @@ export default function ListUsers(props) {
                     </div>
                 </div>
                 <div className="row">
-                   <h2>Users List</h2> 
+                <h2>Orders List</h2> 
                 </div>
                 <div className="row">
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="id">User ID</th>
-                                <th scope="name">Name</th>
-                                <th scope="email">Email</th>
-                                <th scope="password">Password</th>
+                                <th scope="orderId">Order ID</th>
+                                <th scope="userId">User ID</th>
+                                <th scope="total">Total</th>
+                                <th scope="paid">Paid</th>
+                                <th scope="shipped">Shipped</th>
+                                <th scope="completed">Completed</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {usersList}
+                            {ordersList}
                         </tbody>
                     </table>
                 </div>
