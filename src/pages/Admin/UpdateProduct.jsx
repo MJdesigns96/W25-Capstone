@@ -84,7 +84,7 @@ export default function UpdateProduct(props) {
                 promotion : Number(product.promotion)
             })
         } 
-        console.log(product);
+        // console.log(product);
 
         try {
             const response = await axios.post('http://localhost:8888/updateProduct', product);
