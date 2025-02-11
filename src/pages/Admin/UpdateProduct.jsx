@@ -18,7 +18,7 @@ export default function UpdateProduct(props) {
     });
 
     const [product, setProduct] = useState(chosenProduct);
-    console.log(product);
+    // console.log(product);
 
     //handle form changes
     const handleChange = (e) => {
@@ -83,13 +83,13 @@ export default function UpdateProduct(props) {
                 stock : Number(product.stock),
                 promotion : Number(product.promotion)
             })
-        } 
-        // console.log(product);
+        }
 
         try {
             const response = await axios.post('http://localhost:8888/updateProduct', product);
             console.log('Form data submitted', response.data);
             navigateTo('/admin/list-products');
+            navigateTo(0);
         } catch (err) {
             console.error("Error", err);
         };

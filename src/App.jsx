@@ -1,6 +1,7 @@
 import './App.css'
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from './components/ScrollTotop';
 //layout tabs
 import Layout from './pages/Layout';
 import Home from './pages/Home';
@@ -29,6 +30,9 @@ import Dashboard from './pages/Admin/Dashboard';
 import ListProducts from './pages/Admin/ListProducts';
 import AddProduct from './pages/Admin/AddProduct';
 import UpdateProduct from './pages/Admin/UpdateProduct';
+import DeleteProduct from './pages/Admin/DeleteProduct';
+import ListUsers from './pages/Admin/ListUsers';
+import ListOrders from './pages/Admin/ListOrders';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -40,6 +44,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:8888/users')
@@ -59,12 +64,21 @@ function App() {
       .catch(error => console.error(error))
   }, []);
 
+  useEffect(() => {
+    axios.get('http://localhost:8888/orders')
+    .then(response => setOrders(response.data))
+    .catch(error => console.error(error))
+  }, []);
+
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
+            {/* Landing page */}
             <Route index element={<Home props={products}/>} />
+            {/* Product pages */}
             <Route path="products" element={<Products props={products} />}>
               <Route path='all-products' element={<AllProducts props={products} />}/>
               <Route path='all-products/:productId' element={<ProductDetails props={products}/>} />
@@ -72,28 +86,31 @@ function App() {
               <Route path='boots' element={<Boots props={products} />}/>
               <Route path='sneakers' element={<Sneakers props={products} />}/>
             </Route>
+            {/* About section pages */}
             <Route path="brand" element={<Brand />} />
             <Route path='blogs' element={<Blogs props={blogs} />}>
               <Route path="short-blogs" element={<ShortBlogs props={blogs}/>}/>
               <Route path=':blogId' element={<BlogPost props={blogs} />} />
             </Route>
+            {/* Account pages */}
             <Route path="accounts" element={<Accounts props={users} />}>
               <Route path="details" element={<Details />} />
               <Route path='login' element={<Login />} />
               <Route path="register" element={<Register props={users} />} />
             </Route>
-            <Route path="checkout" element={<Checkout />} />
+            {/* checkout page */}
+            <Route path="checkout" element={<Checkout props={orders} />} />
+            {/* admin pages */}
             <Route path="admin"element={<Admin props={products} />}>
               <Route path='dashboard' element={<Dashboard />} />
               {/* product admin features */}
               <Route path='list-products' element={<ListProducts props={products} />} />
               <Route path='add-product' element={<AddProduct props={products} />} />
               <Route path='update-product/:productId' element={<UpdateProduct props={products} />} />
-              <Route path='delete-product' />
+              <Route path='delete-product/:productId' element={<DeleteProduct props={products} />} />
               {/* order admin features */}
-              <Route path='users-list' />
-              <Route path='orders-list' />
-              <Route path='stock-list' />
+              <Route path='users-list' element={<ListUsers props={users} />}/>
+              <Route path='orders-list' element={<ListOrders props={orders} />} />
               {/* blog admin features */}
               <Route path='blogs-list' />
               <Route path='blogs-add' />

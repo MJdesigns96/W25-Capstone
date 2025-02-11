@@ -7,7 +7,7 @@ export default function ListProducts(props) {
     //set state from props
     useEffect(() => {
         setProducts(props.props);
-    }, []);
+    }, [props]);
     // console.log(products);
 
     //nav button to go back
@@ -19,9 +19,9 @@ export default function ListProducts(props) {
             <th scope="row">{entry.id}</th>
             <td>{entry.name}</td>
             <td>{entry.type}</td>
-            <td>{entry.price}</td>
-            <td>{entry.stock}</td>
-            <td>{entry.promotion}</td>
+            <td>${entry.price}</td>
+            <td>{entry.stock} units</td>
+            <td>{entry.promotion}%</td>
             <td>
                 <Link to={`/admin/update-product/${entry.id}`}>
                     <button type="button" className="btn btn-info">Edit</button>
@@ -44,7 +44,9 @@ export default function ListProducts(props) {
                     </Link>
                 </div>
                 <div className="col-2">
-                    <button type="button" className="btn btn-secondary" onClick={() => navigate(-1)}>Back</button>
+                    <Link to={`/admin/dashboard`}>
+                        <button type="button" className="btn btn-secondary">Back</button>
+                    </Link>
                 </div>
             </div>
             <div className="row mb-3">
