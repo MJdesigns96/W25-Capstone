@@ -31,6 +31,7 @@ import ListProducts from './pages/Admin/ListProducts';
 import AddProduct from './pages/Admin/AddProduct';
 import UpdateProduct from './pages/Admin/UpdateProduct';
 import DeleteProduct from './pages/Admin/DeleteProduct';
+import ListUsers from './pages/Admin/ListUsers';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -100,7 +101,7 @@ function App() {
               <Route path='update-product/:productId' element={<UpdateProduct props={products} />} />
               <Route path='delete-product/:productId' element={<DeleteProduct props={products} />} />
               {/* order admin features */}
-              <Route path='users-list' />
+              <Route path='users-list' element={<ListUsers props={users} />}/>
               <Route path='orders-list' />
               {/* blog admin features */}
               <Route path='blogs-list' />

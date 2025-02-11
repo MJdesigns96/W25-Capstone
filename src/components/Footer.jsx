@@ -45,7 +45,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="row">
-                <p>CopyRight &copy;2025 information and privacy policies and things.</p>
+                <p>CopyRight: &copy; 2025 Marcus Jeong Canada. All Rights Reserved.</p>
             </div>
         </div>
     )
