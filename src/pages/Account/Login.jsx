@@ -7,6 +7,7 @@ export default function Login() {
     // console.log(localStorage.getItem('loggedIn'));
     // states
     const [passwordShown, setPasswordShown] = useState(false);
+    const [failedAttempt, setFailedAttempt] = useState();
 
     const showPass = () => {
         setPasswordShown(passwordShown ? false : true);
@@ -24,15 +25,21 @@ export default function Login() {
         try {
             const response = await axios.post('http://localhost:8888/findUser', userBody);
             // console.log('Found', response.data);
-            localStorage.setItem("loggedIn", true);
-            localStorage.setItem('userId', response.data[0].id);
-            localStorage.setItem('userName', response.data[0].name);
-            localStorage.setItem('userEmail', response.data[0].email);
-            localStorage.setItem('userPassword', response.data[0].password);
+            console.log(response.data);
+            if (response.data) {
+                localStorage.setItem("loggedIn", true);
+                localStorage.setItem('userId', response.data[0].id);
+                localStorage.setItem('userName', response.data[0].name);
+                localStorage.setItem('userEmail', response.data[0].email);
+                localStorage.setItem('userPassword', response.data[0].password);
+                navigateTo('/accounts/details');
+            } else {
+                setFailedAttempt(true);
+            }
         } catch (err) {
             console.error("Error", err);
         };
-        navigateTo('/accounts/details');
+        
     }
 
     return(
@@ -53,10 +60,14 @@ export default function Login() {
                             <label htmlFor="password">Password: </label>
                             <span> </span>
                             <input type={passwordShown ? "text" : "password"} id="password" name="password" />
-                            <small>
-                                <button type="button" className="btn btn-light shadow-none" onClick={showPass}> Show Password</button>
-                            </small>
+                            
                         </h3>
+                        <div className="row">
+                            {failedAttempt ? <small className="rounded bg-danger-subtle text-danger my-2">Incorrect Email or Password</small> : ""}
+                        </div>
+                        <small>
+                            <button type="button" className="btn btn-light shadow-none" onClick={showPass}> Show Password</button>
+                        </small>
                     </div>
                     <div className="row">
                         <div className="col">
