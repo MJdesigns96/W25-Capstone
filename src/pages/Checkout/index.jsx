@@ -9,6 +9,7 @@ export default function Checkout(props) {
     let userCart;
 
     //Find a way to take the local storage obj and make elements from them
+    console.log(items.cart === undefined);
     if (items.cart === undefined) {
         userCart = (
             <div>
@@ -100,9 +101,14 @@ export default function Checkout(props) {
     }
 
     //variables to pass down to checkout button
-    let orderId = props.props.length + 1;
-    let userId = items.userId;
-    let checkoutCart = JSON.parse(items.cart)
+    let orderId, userId, checkoutCart
+
+    if (items.cart !== undefined ) {
+        orderId = props.props.length + 1;
+        userId = items.userId;
+        checkoutCart = JSON.parse(items.cart)
+    }
+    
 
     return (
         <>

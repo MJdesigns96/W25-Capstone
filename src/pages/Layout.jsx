@@ -4,6 +4,8 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 
 export default function Layout(){
+    // let local = {...localStorage};
+    // console.log(local);
     return (
         <>
             <Banner />
