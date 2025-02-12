@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Details() {
     let items = {...localStorage};
@@ -18,6 +18,9 @@ export default function Details() {
     let logStatus = localStorage.getItem('loggedIn');
     let booleanValue = logStatus === "true";
     let navigateTo = useNavigate();
+
+    //check for admin access
+    let adminCheck = localStorage.getItem('userId');
 
     useEffect(() => {
         if (!booleanValue) {
@@ -60,66 +63,81 @@ export default function Details() {
         navigateTo('/accounts/login');
     }
 
-    return(
-        <div className="row my-5">
-            <div className="col"></div>
-            <div className="col-6 text-start">
-                <div className="row my-3">
-                    <h2>Hi, {accountDetails.name}</h2>
-                    <p>Welcome to your account details.</p>
-                </div>
-                <h4>My Details:</h4>
-                <form onSubmit={handleSubmit}>
-                    <input type="hidden" name="userId" id="userId" value={accountDetails.id} />
-                    <div className="row my-2">
-                        <h3>
-                            <label htmlFor="name">Name: </label>
-                            <span> </span>
-                            <input type="text" id="name" name="name" value={accountDetails.name} onChange={handleChange}/>
-                        </h3>
-                    </div>
-                    <div className="row my-2">
-                        <h3>
-                            <label htmlFor="email">Email: </label>
-                            <span> </span>
-                            <input type="text" id="email" name="email" value={accountDetails.email} onChange={handleChange}/>
-                        </h3>
-                    </div>
-                    <div className="row my-2">
-                        <h3>
-                            <label htmlFor="password">Password: </label>
-                            <span> </span>
-                            <input type={passwordShown ? "text" : "password"} id="password" name="password" value={accountDetails.password} onChange={handleChange}/>
-                        </h3>
-                        <small>
-                            <button type="button" className="btn btn-light shadow-none" onClick={showPass}> Show Password</button>
-                        </small>
-                    </div>
-                    <div className="row my-2">
-                        <h3>
-                            <label htmlFor="email">Address: </label>
-                            <span> </span>
-                            <input type="text" id="shipping" name="shipping" value={accountDetails.shipping} onChange={handleChange}/>
-                        </h3>
-                    </div>
-                    <div className="row my-2">
-                        <h3>
-                            <label htmlFor="email">Postal Code: </label>
-                            <span> </span>
-                            <input type="text" id="postal" name="postal" value={accountDetails.postal} onChange={handleChange}/>
-                        </h3>
-                    </div>
-                    <div className="row">
-                        <div className="col">
-                            <button type="submit" className="btn btn-primary">Save</button>
-                        </div>
-                        <div className="col">
-                            <button type="button" className="btn btn-danger" onClick={logOut}>Log Out</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div className="col"></div>
+    const dashboardButton = (
+        <div className="col-2">
+            <Link to={`/admin/dashboard`}>
+                <button type="button" className="btn btn-secondary">Admin</button>
+            </Link>
         </div>
+    )
+
+    return(
+        <>
+            <div className="row mt-5 ms-5">
+                { adminCheck === "1" ? dashboardButton : ""}                    
+            </div>
+            <div className="row mb-5">
+                <div className="col"></div>
+                <div className="col-6 text-start">
+                    
+                    <div className="row my-3">
+                        <h2>Hi, {accountDetails.name}</h2>
+                        <p>Welcome to your account details.</p>
+                    </div>
+                    <h4>My Details:</h4>
+                    <form onSubmit={handleSubmit}>
+                        <input type="hidden" name="userId" id="userId" value={accountDetails.id} />
+                        <div className="row my-2">
+                            <h3>
+                                <label htmlFor="name">Name: </label>
+                                <span> </span>
+                                <input type="text" id="name" name="name" value={accountDetails.name} onChange={handleChange}/>
+                            </h3>
+                        </div>
+                        <div className="row my-2">
+                            <h3>
+                                <label htmlFor="email">Email: </label>
+                                <span> </span>
+                                <input type="text" id="email" name="email" value={accountDetails.email} onChange={handleChange}/>
+                            </h3>
+                        </div>
+                        <div className="row my-2">
+                            <h3>
+                                <label htmlFor="password">Password: </label>
+                                <span> </span>
+                                <input type={passwordShown ? "text" : "password"} id="password" name="password" value={accountDetails.password} onChange={handleChange}/>
+                            </h3>
+                            <small>
+                                <button type="button" className="btn btn-light shadow-none" onClick={showPass}> Show Password</button>
+                            </small>
+                        </div>
+                        <div className="row my-2">
+                            <h3>
+                                <label htmlFor="email">Address: </label>
+                                <span> </span>
+                                <input type="text" id="shipping" name="shipping" value={accountDetails.shipping} onChange={handleChange}/>
+                            </h3>
+                        </div>
+                        <div className="row my-2">
+                            <h3>
+                                <label htmlFor="email">Postal Code: </label>
+                                <span> </span>
+                                <input type="text" id="postal" name="postal" value={accountDetails.postal} onChange={handleChange}/>
+                            </h3>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <button type="submit" className="btn btn-primary">Save</button>
+                            </div>
+                            <div className="col">
+                                <button type="button" className="btn btn-danger" onClick={logOut}>Log Out</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div className="col"></div>
+            </div>
+        </>
+        
     )
 }
