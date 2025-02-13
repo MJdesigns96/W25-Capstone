@@ -39,6 +39,7 @@ import ListOrders from './pages/Admin/ListOrders';
 import ListBlogs from './pages/Admin/ListBlogs';
 import AddBlog from './pages/Admin/AddBlogs';
 import UpdateBlog from './pages/Admin/UpdateBlog';
+import DeleteBlog from './pages/Admin/DeleteBlog';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -121,7 +122,7 @@ function App() {
               <Route path='blogs-list' element={<ListBlogs props={blogs} />} />
               <Route path='add-blog' element={<AddBlog props={blogs} />} />
               <Route path='update-blog/:blogId' element={<UpdateBlog props={blogs} />} />
-              <Route path='delete-blog/:blogId' />
+              <Route path='delete-blog/:blogId' element={<DeleteBlog props={blogs} />} />
             </Route>
           </Route>
         </Routes>
