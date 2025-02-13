@@ -27,12 +27,18 @@ import Checkout from './pages/Checkout/index';
 //Admin pages
 import Admin from './pages/Admin';
 import Dashboard from './pages/Admin/Dashboard';
+//products
 import ListProducts from './pages/Admin/ListProducts';
 import AddProduct from './pages/Admin/AddProduct';
 import UpdateProduct from './pages/Admin/UpdateProduct';
 import DeleteProduct from './pages/Admin/DeleteProduct';
+//list users and orders
 import ListUsers from './pages/Admin/ListUsers';
 import ListOrders from './pages/Admin/ListOrders';
+//blogs
+import ListBlogs from './pages/Admin/ListBlogs';
+import AddBlog from './pages/Admin/AddBlogs';
+import UpdateBlog from './pages/Admin/UpdateBlog';
 
 //import state from server
 import React, { useState, useEffect } from 'react';
@@ -112,9 +118,10 @@ function App() {
               <Route path='users-list' element={<ListUsers props={users} />}/>
               <Route path='orders-list' element={<ListOrders props={orders} />} />
               {/* blog admin features */}
-              <Route path='blogs-list' />
-              <Route path='blogs-add' />
-              <Route path='blogs-delete' />
+              <Route path='blogs-list' element={<ListBlogs props={blogs} />} />
+              <Route path='add-blog' element={<AddBlog props={blogs} />} />
+              <Route path='update-blog/:blogId' element={<UpdateBlog props={blogs} />} />
+              <Route path='delete-blog/:blogId' />
             </Route>
           </Route>
         </Routes>
