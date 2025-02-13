@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function Register(props) {
     // get the length of the list of users to add the new user's id
-    let usersListLength = props.props.length;
+    let usersListLength = props.props[props.props.length-1].id + 1;
 
     // a template object to save the form data to before sending it to the db
     let templateObj = {

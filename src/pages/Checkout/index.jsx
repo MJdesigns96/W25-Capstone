@@ -101,10 +101,10 @@ export default function Checkout(props) {
     }
 
     //variables to pass down to checkout button
-    let orderId, userId, checkoutCart
+    let orderId, userId, checkoutCart;
 
     if (items.cart !== undefined ) {
-        orderId = props.props.length + 1;
+        orderId = props.props[props.props.length-1].id + 1;
         userId = items.userId;
         checkoutCart = JSON.parse(items.cart)
     }

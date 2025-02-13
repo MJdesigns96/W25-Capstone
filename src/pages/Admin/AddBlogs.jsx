@@ -6,7 +6,7 @@ export default function AddBlog(props) {
     //useNaviagte
     const navigateTo = useNavigate()
     //new blog id
-    const newBlogId = props.props.length + 1;
+    const newBlogId = props.props[props.props.length-1].id + 1;
 
     let blogTemplateObj = {
         id: newBlogId,
