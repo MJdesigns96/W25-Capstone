@@ -24,6 +24,8 @@ import Register from './pages/Account/Register';
 import Login from './pages/Account/Login';
 //checkout page
 import Checkout from './pages/Checkout/index';
+import Cart from './pages/Checkout/Cart';
+import CheckoutSuccess from './pages/Checkout/CheckoutSuccess';
 //Admin pages
 import Admin from './pages/Admin';
 import Dashboard from './pages/Admin/Dashboard';
@@ -106,7 +108,10 @@ function App() {
               <Route path="register" element={<Register props={users} />} />
             </Route>
             {/* checkout page */}
-            <Route path="checkout" element={<Checkout props={orders} />} />
+            <Route path="checkout" element={<Checkout props={orders} />}>
+              <Route path="cart" element={<Cart props={orders} />} />
+              <Route path="success/:orderId" element={<CheckoutSuccess props={orders} />} />
+            </Route>
             {/* admin pages */}
             <Route path="admin"element={<Admin props={products} />}>
               <Route path='dashboard' element={<Dashboard />} />

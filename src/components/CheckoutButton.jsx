@@ -2,6 +2,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function CheckoutButton(props) {
+    //navigate to checkout success
+    const navigateTo = useNavigate();
+
     let checkoutOrder = {
         orderId: props.orderId,
         userId: props.userId,
@@ -15,10 +18,11 @@ export default function CheckoutButton(props) {
     const submitOrder = async(e) => {
         e.preventDefault();
         
-        console.log(checkoutOrder);
+        // console.log(checkoutOrder);
         try {
             const response = await axios.post('http://localhost:8888/newOrder', checkoutOrder);
             console.log('Form data submitted', response.data);
+            navigateTo(`/checkout/success/${props.orderId}`);
         } catch (err) {
             console.error("Error", err);
         };

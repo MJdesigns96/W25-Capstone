@@ -51,7 +51,7 @@ export default function Header() {
                         </Link>
                     </div>
                     <div className="mx-3">
-                        <Link to='/checkout'>
+                        <Link to='/checkout/cart'>
                             <img src={Cart} alt="shopping cart" width={32} style={{color:"#fff"}} />
                         </Link>
                     </div>
