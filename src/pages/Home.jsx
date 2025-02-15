@@ -14,7 +14,7 @@ const Home = (props) => {
     // console.log(homePageProducts.props);
 
     // localStorage.clear();
-    console.log(localStorage);
+    // console.log(localStorage);
 
 
     const passProductsProps = (

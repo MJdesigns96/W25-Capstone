@@ -24,12 +24,13 @@ export default function ProductSmall (props) {
         }
     }
 
-    // console.log(props.props);
+    console.log(products);
 
     //create a list to render in react
     const productsList = products.map(entry => ( 
         <div key={entry.id} className='card col-6'>
             <Link to={`/products/all-products/${entry.id}`} style={{textDecoration: "none", color:"black"}}>
+                <img src={entry.images.img1} alt="product image" />
                 <div className='card-body text-start'>
                     <h1 className='card-title'>{entry.name}</h1>
                     <p className='card-text'>Description Short: {entry.descriptionShort}</p>
