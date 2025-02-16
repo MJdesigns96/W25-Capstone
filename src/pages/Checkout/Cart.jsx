@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckoutButton from "../../components/CheckoutButton";
 
-
 export default function Cart (props) {
     const [cart, setCart] = useState();
     let items = {...localStorage};
     let userCart;
 
     //Find a way to take the local storage obj and make elements from them
-    console.log(items.cart === undefined);
     if (items.cart === undefined) {
         userCart = (
             <div>

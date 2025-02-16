@@ -16,7 +16,7 @@ export default function CheckoutSuccess (props) {
     const navigateTo = useNavigate();
 
     const items = {...localStorage};
-    localStorage.setItem('cart', "{}");
+    localStorage.removeItem('cart');
 
     return (
         <>

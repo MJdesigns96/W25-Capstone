@@ -5,10 +5,16 @@ export default function CheckoutButton(props) {
     //navigate to checkout success
     const navigateTo = useNavigate();
 
+    let cartItems = {};
+
+    for (const [key, value] of Object.entries(props.items)) {
+        cartItems[key] = {qty : value.qty, id : value.details.id}
+    }
+
     let checkoutOrder = {
         orderId: props.orderId,
         userId: props.userId,
-        items: props.items,
+        items: cartItems,
         total: props.total,
         paid: true,
         shipped: false,
@@ -18,7 +24,7 @@ export default function CheckoutButton(props) {
     const submitOrder = async(e) => {
         e.preventDefault();
         
-        // console.log(checkoutOrder);
+        console.log(checkoutOrder);
         try {
             const response = await axios.post('http://localhost:8888/newOrder', checkoutOrder);
             console.log('Form data submitted', response.data);
