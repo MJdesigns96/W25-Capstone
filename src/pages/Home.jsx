@@ -11,12 +11,6 @@ const Home = (props) => {
         setHomePageProducts(props);
     }, []);
 
-    // console.log(homePageProducts.props);
-
-    // localStorage.clear();
-    // console.log(localStorage);
-
-
     const passProductsProps = (
         homePageProducts.props != undefined ?
             <ProductSmall props = {homePageProducts.props}/> : ""
