@@ -15,7 +15,7 @@ export default function Header() {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg bg-primary row">
+        <nav className="navbar navbar-expand-lg bg-primary row sticky-top">
             <div className="container-fluid">
                 <Link className="nav-link text-light me-3" to="/">
                     <h2>Brand</h2>

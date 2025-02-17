@@ -1,5 +1,7 @@
 import ProductSmall from "../../components/ProductsSmall"
 import FilterButtons from "../../components/FilterButtons";
+import './products.css';
+import Sneaker from '../../assets/sneaker-category.jpg';
 
 export default function Sneakers(props) {
     let products = props.props;
@@ -7,8 +9,10 @@ export default function Sneakers(props) {
 
     return(
         <>
-            <div className="row my-5">
-                <h2 className="mb-4">Categories</h2>
+            <div className="row">
+                <div className="parallax" style={{backgroundImage: `url(${Sneaker})`, minHeight: "40vh"}}>
+                </div>
+                <h2 className="my-4">Categories</h2>
                 <FilterButtons />
             </div>
             <div className="row text-start">

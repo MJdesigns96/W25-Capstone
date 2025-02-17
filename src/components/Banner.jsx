@@ -1,6 +1,6 @@
 export default function Banner() {
     return(
-        <div className="row-fluid mt-3">
+        <div className="row-fluid">
             <div id="carouselExample" className="carousel slide bg-info-subtle row py-2" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="5000">
