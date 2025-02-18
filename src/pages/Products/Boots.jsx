@@ -1,7 +1,7 @@
 import ProductSmall from "../../components/ProductsSmall";
 import FilterButtons from "../../components/FilterButtons";
 import './products.css';
-import Boot from '../../assets/boot-category.jpg';
+import Boot from '../../assets/boot-store.jpg';
 
 export default function Boots(props) {
     let products = props.props;

@@ -105,6 +105,7 @@ export default function Cart (props) {
         orderId = props.props[props.props.length-1].id + 1;
         userId = items.userId;
         checkoutCart = JSON.parse(items.cart)
+        console.log(checkoutCart);
     }
     
 

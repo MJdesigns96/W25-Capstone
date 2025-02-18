@@ -1,7 +1,7 @@
 import ProductSmall from "../../components/ProductsSmall"
 import FilterButtons from "../../components/FilterButtons";
 import './products.css';
-import Sandal from '../../assets/sandal-category.jpg';
+import Sandal from '../../assets/sandal-store.jpg';
 
 export default function Sandals(props) {
     let products = props.props;

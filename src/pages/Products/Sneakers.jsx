@@ -1,7 +1,7 @@
 import ProductSmall from "../../components/ProductsSmall"
 import FilterButtons from "../../components/FilterButtons";
 import './products.css';
-import Sneaker from '../../assets/sneaker-category.jpg';
+import Sneaker from '../../assets/sneaker-store.jpg';
 
 export default function Sneakers(props) {
     let products = props.props;
