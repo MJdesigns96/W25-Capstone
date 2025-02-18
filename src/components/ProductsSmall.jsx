@@ -16,11 +16,13 @@ export default function ProductSmall (props) {
             let strObjFromStorage = localStorage.getItem('cart');
             cart = JSON.parse(strObjFromStorage);
             if (cart[entry.id] === undefined || cart[entry.id].size !== itemSize) {
-                cart[entry.id] = { details: entry, qty: 1, size: itemSize };
+                let count = Object.keys(cart).length + 1;
+                let cartProdId = cart[entry.id].details.id
+                let keyForMultiple = `${cartProdId}V${count}`;
+                cart[keyForMultiple] =  { details: entry, qty: 1, size: itemSize };
             } else {
                 cart[entry.id].qty++;
             }
-            console.log(cart);
             const strObj = JSON.stringify(cart);
             localStorage.setItem('cart', strObj);
         }

@@ -26,6 +26,8 @@ export default function Cart (props) {
         }, []);
     }
 
+    console.log(cart);
+
     let subtotal = 0;
     let taxes = 0;
     let shipping = 0;
@@ -34,12 +36,13 @@ export default function Cart (props) {
     let checkoutItems = () => {
         // get item details from localstorage
         userCart = cart?.map(entry => (
-            <div className="row" key={entry.details.id}>
+            <div className="row" key={cart.indexOf(entry) +1}>
                 <div className="col"></div>
                 <div className="col">
                     <h4>{entry.details.name}</h4>
                     <p>${entry.details.price.toFixed(2)}</p>
                     <h5>Quantity: {entry.qty}</h5>
+                    <h5>Size: {entry.size}</h5>
                 </div>
             </div>
         ));
@@ -105,7 +108,7 @@ export default function Cart (props) {
         orderId = props.props[props.props.length-1].id + 1;
         userId = items.userId;
         checkoutCart = JSON.parse(items.cart)
-        console.log(checkoutCart);
+        // console.log(checkoutCart);
     }
     
 
