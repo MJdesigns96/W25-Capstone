@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import LandingAboutUs from "../components/LandingAboutUs";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = (props) => {
     const [homePageProducts, setHomePageProducts] = useState([]);
@@ -13,7 +14,7 @@ const Home = (props) => {
 
     const passProductsProps = (
         homePageProducts.props != undefined ?
-            <ProductSmall props = {homePageProducts.props}/> : ""
+            <ProductSmall props = {homePageProducts.props} limit = {4} /> : ""
     )
 
     return (

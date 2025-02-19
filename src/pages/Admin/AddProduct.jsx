@@ -15,7 +15,11 @@ export default function AddProduct(props) {
         id: newProductId,
         name: "",
         price: 0,
-        images: {},
+        images: [{
+            "img1": "",
+            "img2": "",
+            "img3": ""
+        }],
         descriptionShort: "",
         sizes: [{
             "xSmall":false,
@@ -71,6 +75,20 @@ export default function AddProduct(props) {
             }]
         });
     };
+
+    const changeImages = (e) => {
+        let property = e.target.name;
+        let images = formData.images[0];
+        let value = e.target.value;
+
+        setFormData({
+            ...formData,
+            images: [{
+                ...images,
+                [property]: value
+            }]
+        });
+    }
 
     const changeAdditional = (e) => {
         let property = e.target.name;
@@ -143,6 +161,36 @@ export default function AddProduct(props) {
                             </div>
                             <div className="col">
                                 <input type="number" id="price" name="price" placeholder="00.00" value={formData.price} onChange={handleChange} min="0.01" step=".01" />
+                            </div>
+                        </div>
+                    </h3>
+                    <h3>
+                        <div className="row">
+                            <div className="col">
+                                <label htmlFor="img1">Image 1 link: </label>
+                            </div>
+                            <div className="col">
+                                <input type="text" id="img1" name="img1" value={formData.images[0].img1} onChange={changeImages} />
+                            </div>
+                        </div>
+                    </h3>
+                    <h3>
+                        <div className="row">
+                            <div className="col">
+                                <label htmlFor="img2">Image 2 link: </label>
+                            </div>
+                            <div className="col">
+                                <input type="text" id="2" name="img2" value={formData.images[0].img2} onChange={changeImages} />
+                            </div>
+                        </div>
+                    </h3>
+                    <h3>
+                        <div className="row">
+                            <div className="col">
+                                <label htmlFor="img3">Image 3 link: </label>
+                            </div>
+                            <div className="col">
+                                <input type="text" id="img3" name="img3" value={formData.images[0].img3} onChange={changeImages} />
                             </div>
                         </div>
                     </h3>

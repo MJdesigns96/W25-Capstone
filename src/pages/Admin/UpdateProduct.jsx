@@ -38,6 +38,22 @@ export default function UpdateProduct(props) {
         });
     }
 
+    const changeImages = (e) => {
+        let property = e.target.name;
+        let images = product.images[0];
+        let value = e.target.value;
+
+        setProduct({
+            ...product,
+            images: [{
+                ...images,
+                [property]: value
+            }]
+        });
+
+        console.log(product.images[0]);
+    }
+
     const setColors = (e) => {
         const color = e.target.value;
         setProduct({
@@ -132,10 +148,30 @@ export default function UpdateProduct(props) {
                     <h3>
                         <div className="row">
                             <div className="col">
-                                <label htmlFor="img1">Image link: </label>
+                                <label htmlFor="img1">Image1 link: </label>
                             </div>
                             <div className="col">
-                                <input type="text" id="img1" name="img1" value={product.images[0].img1} onChange={handleChange} />
+                                <input type="text" id="img1" name="img1" value={product.images[0].img1} onChange={changeImages} />
+                            </div>
+                        </div>
+                    </h3>
+                    <h3>
+                        <div className="row">
+                            <div className="col">
+                                <label htmlFor="img2">Image2 link: </label>
+                            </div>
+                            <div className="col">
+                                <input type="text" id="img2" name="img2" value={product.images[0].img2} onChange={changeImages} />
+                            </div>
+                        </div>
+                    </h3>
+                    <h3>
+                        <div className="row">
+                            <div className="col">
+                                <label htmlFor="img3">Image3 link: </label>
+                            </div>
+                            <div className="col">
+                                <input type="text" id="img3" name="img3" value={product.images[0].img3} onChange={changeImages} />
                             </div>
                         </div>
                     </h3>

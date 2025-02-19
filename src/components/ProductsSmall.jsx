@@ -5,8 +5,6 @@ export default function ProductSmall (props) {
     // //render data from mongodb server and express. Transfer to a component later on.
     const [products, setProducts] = useState(props.props);
 
-    console.log(products)
-
     const addToCart = (entry) => {
         let cart = {};
         //currently the localstorage is overwriting the cart
@@ -53,7 +51,9 @@ export default function ProductSmall (props) {
     }
 
     let count = 0;
-    const productsList = products?.map(entry => ( 
+    const limit = props.limit;
+
+    const productsList = products?.filter((entry, index) => index < limit).map(entry => (
         <div key={entry.id} className='card col-6'>
             <Link to={`/products/all-products/${entry.id}`} style={{textDecoration: "none", color:"black"}}>
                 <img src={entry.images[0].img1} alt="product image" loading="lazy" className='w-100 h-75 rounded' style={{objectFit: "cover", maxHeight: "40vh"}}/>

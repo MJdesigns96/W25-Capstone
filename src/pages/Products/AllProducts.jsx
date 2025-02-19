@@ -17,7 +17,7 @@ export default function AllProducts(props) {
             <div className="row text-start">
                 <h2 className="my-4">All Products</h2>
                 <p>Below you will find our collection of footwear products to fit your every need and function.</p>
-                <ProductSmall props={products} />
+                <ProductSmall props={products} limit={8} />
             </div>
         </>
     )
