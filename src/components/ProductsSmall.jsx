@@ -15,17 +15,24 @@ export default function ProductSmall (props) {
         } else {
             let strObjFromStorage = localStorage.getItem('cart');
             cart = JSON.parse(strObjFromStorage);
-            if (cart[entry.id] === undefined || cart[entry.id].size !== itemSize) {
+            console.log(cart);
+            console.log(cart[entry.id]);
+            if (cart[entry.id] === undefined) {
+                cart[entry.id] = { details: entry, qty: 1, size: itemSize };
+                const strObj = JSON.stringify(cart);
+                localStorage.setItem('cart', strObj);
+            } else if (cart[entry.id].size !== itemSize) {
                 let count = Object.keys(cart).length + 1;
                 let cartProdId = cart[entry.id].details.id
                 let keyForMultiple = `${cartProdId}V${count}`;
                 cart[keyForMultiple] =  { details: entry, qty: 1, size: itemSize };
+                const strObj = JSON.stringify(cart);
+                localStorage.setItem('cart', strObj);
             } else {
                 cart[entry.id].qty++;
             }
-            const strObj = JSON.stringify(cart);
-            localStorage.setItem('cart', strObj);
         }
+        console.log(cart);
     }
 
     //create an object that holds the sizes of each item
