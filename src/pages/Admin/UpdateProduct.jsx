@@ -18,7 +18,7 @@ export default function UpdateProduct(props) {
     });
 
     const [product, setProduct] = useState(chosenProduct);
-    // console.log(product);
+    console.log(product);
 
     //handle form changes
     const handleChange = (e) => {
@@ -84,15 +84,16 @@ export default function UpdateProduct(props) {
                 promotion : Number(product.promotion)
             })
         }
+        console.log(product);
 
-        try {
-            const response = await axios.post('http://localhost:8888/updateProduct', product);
-            console.log('Form data submitted', response.data);
-            navigateTo('/admin/list-products');
-            navigateTo(0);
-        } catch (err) {
-            console.error("Error", err);
-        };
+        // try {
+        //     const response = await axios.post('http://localhost:8888/updateProduct', product);
+        //     console.log('Form data submitted', response.data);
+        //     navigateTo('/admin/list-products');
+        //     navigateTo(0);
+        // } catch (err) {
+        //     console.error("Error", err);
+        // };
     }
 
     return (
@@ -125,6 +126,16 @@ export default function UpdateProduct(props) {
                             </div>
                             <div className="col">
                                 <input type="number" id="price" name="price" value={product.price} onChange={handleChange} min="0.01" step=".01" />
+                            </div>
+                        </div>
+                    </h3>
+                    <h3>
+                        <div className="row">
+                            <div className="col">
+                                <label htmlFor="price">Image link: </label>
+                            </div>
+                            <div className="col">
+                                <input type="text" id="price" name="price" value={product.images.img1} onChange={handleChange} />
                             </div>
                         </div>
                     </h3>
