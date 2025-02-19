@@ -11,7 +11,7 @@ export default function ListOrders (props) {
         <tr key={entry.id}>
             <th scope="row">{entry.id}</th>
             <td>{ entry.userId ? entry.userId : "Na" }</td>
-            <td>${ entry.total }</td>
+            <td>${ entry.total.toFixed(2) }</td>
             <td>{ entry.paid ? "Yes" : "No" }</td>
             <td>{ entry.shipped ? "Yes" : "No" }</td>
             <td>{ entry.completed ? "Yes" : "No" }</td>

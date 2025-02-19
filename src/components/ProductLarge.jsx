@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductLarge (props) {
+    //set props
     const [product, setProduct] = useState(props.props[0]);
 
+    //have method to add item to localstorage cart
     const addToCart = (entry) => {
         let cart = {};
         //currently the localstorage is overwriting the cart
@@ -33,8 +36,8 @@ export default function ProductLarge (props) {
         console.log(cart);
     }
 
+    //methods and variables needed to get the size of the item before adding it to cart obj
     let itemSize;
-
     const handleSizes = (e) => {
         //get the id for the radio button
         let preSplit = e.target.id;
@@ -48,6 +51,44 @@ export default function ProductLarge (props) {
     }
 
     let count = 0;
+
+    //carousel images will render if there are multiple images
+    const images = (
+        <div id="carouselExampleIndicators" className="carousel slide bg-dark rounded" style={{height:"50vh"}}>
+            <div className="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div className="carousel-inner">
+                <div className="carousel-item active">
+                    <img src={product.images[0].img1} alt="img 1" loading="lazy" className='w-100 h-75 rounded' style={{objectFit: "cover", maxHeight: "50vh"}} />
+                </div>
+            {
+                product.images[0].img2 ? 
+                    <div className="carousel-item">
+                        <img src={product.images[0].img2} alt="img 2" loading="lazy" className='w-100 h-75 rounded' style={{objectFit: "cover", maxHeight: "50vh"}} />
+                    </div>
+                : ""
+            }
+            {
+                product.images[0].img3 ? 
+                <div className="carousel-item">
+                    <img src={product.images[0].img3} alt="img 3" loading="lazy" className='w-100 h-75 rounded' style={{objectFit: "cover", maxHeight: "50vh"}} />
+                </div>
+                : ""
+            }
+            </div>
+            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+            </button>
+        </div>
+    )
 
     const productsItem = (
         <>
@@ -95,32 +136,7 @@ export default function ProductLarge (props) {
                     </div>
                 </div>
                 <div className="col px-0">
-                    <div id="carouselExampleIndicators" className="carousel slide bg-dark" style={{height:"50vh"}}>
-                        <div className="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div className="carousel-inner">
-                            <div className="carousel-item active">
-                                <img src={product.images[0].img1} alt="img 1" loading="lazy" className='img-fluid' />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={product.images[0].img1} alt="img 2" loading="lazy" className='img-fluid' />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={product.images[0].img1} alt="img 3" loading="lazy" className='img-fluid' />
-                            </div>
-                        </div>
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                    { images }
                 </div>
             </div>
             <div className="row text-start bg-primary-subtle p-5 mb-5">

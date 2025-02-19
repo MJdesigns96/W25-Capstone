@@ -56,7 +56,7 @@ export default function ProductSmall (props) {
     const productsList = products?.map(entry => ( 
         <div key={entry.id} className='card col-6'>
             <Link to={`/products/all-products/${entry.id}`} style={{textDecoration: "none", color:"black"}}>
-                <img src={entry.images[0].img1} alt="product image" loading="lazy" className='img-fluid' />
+                <img src={entry.images[0].img1} alt="product image" loading="lazy" className='w-100 h-75 rounded' style={{objectFit: "cover", maxHeight: "40vh"}}/>
                 <div className='card-body text-start'>
                     <h1 className='card-title'>{entry.name}</h1>
                     <p className='card-text'>Description Short: {entry.descriptionShort}</p>

@@ -7,6 +7,8 @@ export default function Cart (props) {
     let items = {...localStorage};
     let userCart;
 
+    console.log(items);
+
     //Find a way to take the local storage obj and make elements from them
     if (items.cart === undefined) {
         userCart = (
@@ -59,8 +61,8 @@ export default function Cart (props) {
     //use history to redirect
     let navigateTo = useNavigate();
     
-    const clearLocal = () => {
-        localStorage.clear();
+    const clearCart = () => {
+        localStorage.removeItem("cart");
         navigateTo(0);
     }
 
@@ -121,7 +123,7 @@ export default function Cart (props) {
                 {rightSide}
             </div>
             { items.cart === undefined ? "" : <CheckoutButton orderId={orderId} userId={userId} items={checkoutCart} total={total} /> }
-            <button type="button" className="btn btn-primary mb-5" onClick={clearLocal}>Clear Local</button>
+            <button type="button" className="btn btn-primary mb-5" onClick={clearCart}>Clear Cart</button>
         </>
     )
 }
