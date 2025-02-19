@@ -84,16 +84,16 @@ export default function UpdateProduct(props) {
                 promotion : Number(product.promotion)
             })
         }
-        console.log(product);
+        // console.log(product);
 
-        // try {
-        //     const response = await axios.post('http://localhost:8888/updateProduct', product);
-        //     console.log('Form data submitted', response.data);
-        //     navigateTo('/admin/list-products');
-        //     navigateTo(0);
-        // } catch (err) {
-        //     console.error("Error", err);
-        // };
+        try {
+            const response = await axios.post('http://localhost:8888/updateProduct', product);
+            console.log('Form data submitted', response.data);
+            navigateTo('/admin/list-products');
+            navigateTo(0);
+        } catch (err) {
+            console.error("Error", err);
+        };
     }
 
     return (
@@ -132,10 +132,10 @@ export default function UpdateProduct(props) {
                     <h3>
                         <div className="row">
                             <div className="col">
-                                <label htmlFor="price">Image link: </label>
+                                <label htmlFor="img1">Image link: </label>
                             </div>
                             <div className="col">
-                                <input type="text" id="price" name="price" value={product.images.img1} onChange={handleChange} />
+                                <input type="text" id="img1" name="img1" value={product.images[0].img1} onChange={handleChange} />
                             </div>
                         </div>
                     </h3>

@@ -103,13 +103,13 @@ export default function ProductLarge (props) {
                         </div>
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src={product.images.img1} alt="img 1" loading="lazy" className='img-fluid' />
+                                <img src={product.images[0].img1} alt="img 1" loading="lazy" className='img-fluid' />
                             </div>
                             <div className="carousel-item">
-                                <img src={product.images.img1} alt="img 2" loading="lazy" className='img-fluid' />
+                                <img src={product.images[0].img1} alt="img 2" loading="lazy" className='img-fluid' />
                             </div>
                             <div className="carousel-item">
-                                <img src={product.images.img1} alt="img 3" loading="lazy" className='img-fluid' />
+                                <img src={product.images[0].img1} alt="img 3" loading="lazy" className='img-fluid' />
                             </div>
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
