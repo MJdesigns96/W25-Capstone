@@ -102,7 +102,7 @@ export default function ProductLarge (props) {
 
                             <div className='card-text mb-3'>
                                 <form>
-                                    <div className="card-text">
+                                    <div className="card-text row">
                                         Sizes: {product.sizes.map(size => {
                                             let temp = [];
                                             for(const [key,value] of Object.entries(size)) {
@@ -113,7 +113,7 @@ export default function ProductLarge (props) {
                                             count++;
                                             return temp.map(size => 
                                                 (
-                                                    <h5>
+                                                    <h5 className='col'>
                                                         <input type="radio" id={`${size}${count}`} name={`item${count}`} onChange={handleSizes} />
                                                         <span> </span>
                                                         <label htmlFor={`${size}${count}`}>{size}</label>
