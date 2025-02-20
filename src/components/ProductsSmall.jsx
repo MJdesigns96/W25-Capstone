@@ -59,14 +59,14 @@ export default function ProductSmall (props) {
                 <img src={entry.images[0].img1} alt="product image" loading="lazy" className='w-100 h-75 rounded' style={{objectFit: "cover", maxHeight: "40vh"}}/>
                 <div className='card-body text-start'>
                     <h1 className='card-title'>{entry.name}</h1>
-                    <p className='card-text'>Description Short: {entry.descriptionShort}</p>
-                    <h3 className='card-text'>Price: ${entry.price}</h3>
+                    <p className='card-text'>{entry.descriptionShort}</p>
+                    <h3 className='card-text'>${entry.price}</h3>
                 </div>
             </Link>
             <div className="card-footer">
                 <div className='card-text'>
                     <form>
-                        <div className="card-text">
+                        <div className="card-text row">
                             Sizes: {entry.sizes.map(size => {
                                 let temp = [];
                                 for(const [key,value] of Object.entries(size)) {
@@ -77,7 +77,7 @@ export default function ProductSmall (props) {
                                 count++;
                                 return temp.map(size => 
                                     (
-                                        <h5>
+                                        <h5 className='col'>
                                             <input type="radio" id={`${size}${count}`} name={`item${count}`} onChange={handleSizes} />
                                             <span> </span>
                                             <label htmlFor={`${size}${count}`}>{size}</label>
@@ -86,9 +86,9 @@ export default function ProductSmall (props) {
                                 )
                             })}
                         </div>
-                        <p className='card-text'>Promotion: {entry.promotion}%</p>
-                        <p className='card-text'>Stock: {entry.stock} units</p>
-                        <button type='button' onClick={() => addToCart(entry)}>Add to Cart</button>
+                        {/* <p className='card-text'>Promotion: {entry.promotion}%</p>
+                        <p className='card-text'>Stock: {entry.stock} units</p> */}
+                        <button type='button' className='btn btn-secondary' onClick={() => addToCart(entry)}>Add to Cart</button>
                     </form>
                 </div>               
             </div>           

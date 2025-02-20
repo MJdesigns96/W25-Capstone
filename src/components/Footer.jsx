@@ -20,7 +20,7 @@ export default function Footer() {
                         <h2>Site</h2>
                     </div>
                     <Link to="/">
-                        <h5>Brand</h5>
+                        <h5>Shose</h5>
                     </Link>
                     <Link to="/products/all-products">
                         <h5>Products</h5>
@@ -34,10 +34,10 @@ export default function Footer() {
                         <h2>Socials</h2>
                     </div>
                     <div className="row">
-                        <a href="/">Social Link 1</a>
+                        <a href="/">Instagram</a>
                     </div>
                     <div className="row">
-                        <a href="/">Social Link 2</a>
+                        <a href="/">Blue Sky</a>
                     </div>
                     <div className="row">
                         <a href="/">Social Link 3</a>

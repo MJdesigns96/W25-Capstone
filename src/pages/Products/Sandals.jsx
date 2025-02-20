@@ -19,7 +19,7 @@ export default function Sandals(props) {
                 <h2 className="mb-4">Sandals</h2>
                 <p>Sandals, made for the days when you don't need to go anywhere quick.</p>
                 <p>Feel the sun, wind, and sand on your feet.</p>
-                <ProductSmall props={filtered}/>
+                <ProductSmall props={filtered} limit={8}/>
             </div>
         </>
     )

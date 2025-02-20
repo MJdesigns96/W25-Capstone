@@ -19,7 +19,7 @@ export default function Sneakers(props) {
                 <h2 className="mb-4">Sneakers</h2>
                 <p>Sneakers, workouts, walks, and everyday wear.</p>
                 <p>Our sneakers are designed to be used and still keep you looking fresh for the days ahead.</p>
-                <ProductSmall props={filtered}/>
+                <ProductSmall props={filtered} limit={8}/>
             </div>
         </>
         

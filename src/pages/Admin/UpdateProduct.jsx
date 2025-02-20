@@ -50,8 +50,6 @@ export default function UpdateProduct(props) {
                 [property]: value
             }]
         });
-
-        console.log(product.images[0]);
     }
 
     const setColors = (e) => {
@@ -100,7 +98,6 @@ export default function UpdateProduct(props) {
                 promotion : Number(product.promotion)
             })
         }
-        // console.log(product);
 
         try {
             const response = await axios.post('http://localhost:8888/updateProduct', product);
@@ -193,32 +190,32 @@ export default function UpdateProduct(props) {
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="xSmall" name="xSmall" onChange={handleCheck}/>
-                                <label htmlFor="xSmall">XSmall</label>
+                                <input type="checkbox" id="7" name="7" onChange={handleCheck} defaultChecked={Object.values(product.sizes[0])[0]} />
+                                <label htmlFor="7">7</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="small" name="small" onChange={handleCheck}/>
-                                <label htmlFor="small">small</label>
+                                <input type="checkbox" id="8" name="8" onChange={handleCheck} defaultChecked={Object.values(product.sizes[0])[1]} />
+                                <label htmlFor="8">8</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="medium" name="medium" onChange={handleCheck}/>
-                                <label htmlFor="medium">medium</label>
+                                <input type="checkbox" id="9" name="9" onChange={handleCheck} defaultChecked={Object.values(product.sizes[0])[2]} />
+                                <label htmlFor="9">9</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="large" name="large" onChange={handleCheck}/>
-                                <label htmlFor="large">large</label>
+                                <input type="checkbox" id="10" name="10" onChange={handleCheck} defaultChecked={Object.values(product.sizes[0])[3]} />
+                                <label htmlFor="10">10</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="xLarge" name="xLarge" onChange={handleCheck}/>
-                                <label htmlFor="xLarge">XLarge</label>
+                                <input type="checkbox" id="11" name="11" onChange={handleCheck} defaultChecked={Object.values(product.sizes[0])[4]} />
+                                <label htmlFor="11">11</label>
                             </h5>
                         </div>
                     </div>

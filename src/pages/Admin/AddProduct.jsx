@@ -22,11 +22,11 @@ export default function AddProduct(props) {
         }],
         descriptionShort: "",
         sizes: [{
-            "xSmall":false,
-            "small":false,
-            "medium":false,
-            "large":false,
-            "xLarge":false
+            "7":false,
+            "8":false,
+            "9":false,
+            "10":false,
+            "11":false
         }],
         colors: [{"colorName": ""}],            
         descriptionLong: "",            
@@ -212,32 +212,32 @@ export default function AddProduct(props) {
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="xSmall" name="xSmall" onChange={handleCheck}/>
-                                <label htmlFor="xSmall">XSmall</label>
+                                <input type="checkbox" id="7" name="7" onChange={handleCheck}/>
+                                <label htmlFor="7">7</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="small" name="small" onChange={handleCheck}/>
-                                <label htmlFor="small">small</label>
+                                <input type="checkbox" id="8" name="8" onChange={handleCheck}/>
+                                <label htmlFor="8">8</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="medium" name="medium" onChange={handleCheck}/>
-                                <label htmlFor="medium">medium</label>
+                                <input type="checkbox" id="9" name="9" onChange={handleCheck}/>
+                                <label htmlFor="9">9</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="large" name="large" onChange={handleCheck}/>
-                                <label htmlFor="large">large</label>
+                                <input type="checkbox" id="10" name="10" onChange={handleCheck}/>
+                                <label htmlFor="10">10</label>
                             </h5>
                         </div>
                         <div className="col">
                             <h5>
-                                <input type="checkbox" id="xLarge" name="xLarge" onChange={handleCheck}/>
-                                <label htmlFor="xLarge">XLarge</label>
+                                <input type="checkbox" id="11" name="11" onChange={handleCheck}/>
+                                <label htmlFor="11">11</label>
                             </h5>
                         </div>
                     </div>
