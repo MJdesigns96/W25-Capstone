@@ -3,14 +3,14 @@ export default function Banner() {
         <div className="row-fluid">
             <div id="carouselExample" className="carousel slide bg-info-subtle row py-2" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active" data-bs-interval="5000">
-                        <h3 className="d-block w-100 my-1">Banner 1 for promo content</h3>
+                    <div className="carousel-item active" data-bs-interval="10000">
+                        <h3 className="d-block w-100 my-1">Free Shipping on all Orders</h3>
                     </div>
-                    <div className="carousel-item" data-bs-interval="5000">
-                        <h3 className="d-block w-100 my-1">Banner 2 for promo content</h3>
+                    <div className="carousel-item" data-bs-interval="10000">
+                        <h3 className="d-block w-100 my-1">Sustainable and Fashionable</h3>
                     </div>
-                    <div className="carousel-item" data-bs-interval="5000">
-                        <h3 className="d-block w-100 my-1">Banner 3 for promo content</h3>
+                    <div className="carousel-item" data-bs-interval="10000">
+                        <h3 className="d-block w-100 my-1">1% of all profits go towards charities</h3>
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

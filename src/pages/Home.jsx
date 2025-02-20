@@ -12,6 +12,7 @@ const Home = (props) => {
         setHomePageProducts(props);
     }, []);
 
+    console.log(homePageProducts);
     const passProductsProps = (
         homePageProducts.props != undefined ?
             <ProductSmall props = {homePageProducts.props} limit = {4} /> : ""

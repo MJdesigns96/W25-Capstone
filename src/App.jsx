@@ -86,7 +86,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             {/* Landing page */}
-            <Route index element={<Home props={products}/>} />
+            <Route index element={<Home props={products} />} />
             {/* Product pages */}
             <Route path="products" element={<Products props={products} />}>
               <Route path='all-products' element={<AllProducts props={products} />}/>

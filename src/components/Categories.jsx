@@ -16,7 +16,7 @@ export default function Categories() {
                                 Sandals
                             </h5>
                             <p className="card-text">
-                                some card text to describe the category of item that is being shown
+                                Shop our stylish, breathable sandals—designed for comfort, durability, and perfect for warm weather adventures. Step into sustainable fashion today!
                             </p>
                         </div>
                     </div>
@@ -31,7 +31,7 @@ export default function Categories() {
                                 Boots
                             </h5>
                             <p className="card-text">
-                                some card text to describe the category of item that is being shown
+                                Explore our durable, eco-friendly boots—designed for comfort, style, and all-weather performance. Step confidently with sustainable footwear built to last!
                             </p>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ export default function Categories() {
                                 Sneakers
                             </h5>
                             <p className="card-text">
-                                some card text to describe the category of item that is being shown
+                                Discover our eco-friendly sneakers—lightweight, stylish, and built for all-day comfort. Sustainable fashion meets performance in every step!
                             </p>
                         </div>
                     </div>

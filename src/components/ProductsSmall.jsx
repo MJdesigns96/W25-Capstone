@@ -5,6 +5,8 @@ export default function ProductSmall (props) {
     // //render data from mongodb server and express. Transfer to a component later on.
     const [products, setProducts] = useState(props.props);
 
+    console.log(props);
+
     const addToCart = (entry) => {
         let cart = {};
         //currently the localstorage is overwriting the cart
