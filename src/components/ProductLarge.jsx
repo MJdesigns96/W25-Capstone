@@ -33,6 +33,11 @@ export default function ProductLarge (props) {
                 cart[entry.id].qty++;
             }
         }
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl)
+        })
+        toastList.forEach(toast => toast.show())
         console.log(cart);
     }
 
@@ -103,7 +108,8 @@ export default function ProductLarge (props) {
                             <div className='card-text mb-3'>
                                 <form>
                                     <div className="card-text row">
-                                        Sizes: {product.sizes.map(size => {
+                                        <p className='lead'>Sizes:</p>
+                                         {product.sizes.map(size => {
                                             let temp = [];
                                             for(const [key,value] of Object.entries(size)) {
                                                 if (value && key !== "_id") {
@@ -122,7 +128,7 @@ export default function ProductLarge (props) {
                                             )
                                         })}
                                     </div>
-                                    <button type='button' onClick={() => addToCart(product)}>Add to Cart</button>
+                                    <button type='button' className='btn btn-secondary' onClick={() => addToCart(product)}>Add to Cart</button>
                                 </form>
                             </div>
 

@@ -34,6 +34,11 @@ export default function ProductSmall (props) {
                 cart[entry.id].qty++;
             }
         }
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl)
+        })
+        toastList.forEach(toast => toast.show())
         console.log(cart);
     }
 
@@ -68,8 +73,9 @@ export default function ProductSmall (props) {
             <div className="card-footer">
                 <div className='card-text'>
                     <form>
-                        <div className="card-text row">
-                            Sizes: {entry.sizes.map(size => {
+                        <div className="card-text row mb-3">
+                            <p className='lead'>Sizes:</p>
+                            {entry.sizes.map(size => {
                                 let temp = [];
                                 for(const [key,value] of Object.entries(size)) {
                                     if (value && key !== "_id") {
