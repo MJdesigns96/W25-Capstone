@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import './index.css';
 
 export default function Footer() {
     return (
@@ -20,13 +21,13 @@ export default function Footer() {
                         <h2>Site</h2>
                     </div>
                     <Link to="/">
-                        <h5>Shose</h5>
+                        <h5 className="text-secondary">Shose</h5>
                     </Link>
                     <Link to="/products/all-products">
-                        <h5>Products</h5>
+                        <h5 className="text-secondary">Products</h5>
                     </Link>
                     <Link to="/brand">
-                        <h5>About</h5>
+                        <h5 className="text-secondary">About</h5>
                     </Link>
                 </div>
                 <div className="col">
@@ -34,13 +35,19 @@ export default function Footer() {
                         <h2>Socials</h2>
                     </div>
                     <div className="row">
-                        <a href="/">Instagram</a>
+                        <h5>
+                            <a href="/" className="text-secondary">Instagram</a>
+                        </h5>
                     </div>
                     <div className="row">
-                        <a href="/">Blue Sky</a>
+                        <h5>
+                            <a href="/" className="text-secondary">Blue Sky</a>
+                        </h5>
                     </div>
                     <div className="row">
-                        <a href="/">Social Link 3</a>
+                        <h5>
+                            <a href="/" className="text-secondary">Social Link 3</a>
+                        </h5>
                     </div>
                 </div>
             </div>

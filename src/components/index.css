@@ -1,8 +1,3 @@
-/* .onHoverBtn {
-    visibility: hidden;
-    transition: opacity 0.5s ease;
+a {
+    text-decoration: none;
 }
-
-.categoryCard:hover .onHoverBtn {
-    visibility: visible;
-} */

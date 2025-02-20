@@ -15,6 +15,15 @@ export default function ListOrders (props) {
             <td>{ entry.paid ? "Yes" : "No" }</td>
             <td>{ entry.shipped ? "Yes" : "No" }</td>
             <td>{ entry.completed ? "Yes" : "No" }</td>
+            <td>{ entry.email ? entry.email : "Na" }</td>
+            <td>{ entry.firstName ? entry.firstName : "Na" }</td>
+            <td>{ entry.lastName ? entry.lastName : "Na" }</td>
+            <td>{ entry.address ? entry.address : "Na" }</td>
+            <td>{ entry.city ? entry.city : "Na" }</td>
+            <td>{ entry.postal ? entry.postal : "Na" }</td>
+            <td>{ entry.province ? entry.province : "Na" }</td>
+            <td>{ entry.shipping ? entry.shipping : "Na" }</td>
+            <td>{ entry.paymentMethod ? entry.paymentMethod : "Na" }</td>
         </tr>
     ))
 
@@ -32,7 +41,7 @@ export default function ListOrders (props) {
                 <h2>Orders List</h2> 
                 </div>
                 <div className="row">
-                    <table className="table">
+                    <table className="table w-auto">
                         <thead>
                             <tr>
                                 <th scope="orderId">Order ID</th>
@@ -41,9 +50,18 @@ export default function ListOrders (props) {
                                 <th scope="paid">Paid</th>
                                 <th scope="shipped">Shipped</th>
                                 <th scope="completed">Completed</th>
+                                <th scope="email">Email</th>
+                                <th scope="firstName">First Name</th>
+                                <th scope="lastName">Last Name</th>
+                                <th scope="address">Address</th>
+                                <th scope="city">City</th>
+                                <th scope="postal">Postal</th>
+                                <th scope="province">Province</th>
+                                <th scope="shipping">Shipping</th>
+                                <th scope="paymentMethod">Payment Method</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="overflow-x-scroll">
                             {ordersList}
                         </tbody>
                     </table>

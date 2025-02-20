@@ -18,7 +18,16 @@ export default function CheckoutButton(props) {
         total: props.total,
         paid: true,
         shipped: false,
-        completed: false
+        completed: false,
+        email: props.payment.email,
+        firstName: props.payment.firstName,
+        lastName: props.payment.lastName,
+        address: props.payment.address,
+        city: props.payment.city,
+        postal: props.payment.postal,
+        province: props.payment.province,
+        shipping: props.payment.shipping,
+        paymentMethod: props.payment.paymentMethod
     };
 
     const submitOrder = async(e) => {
