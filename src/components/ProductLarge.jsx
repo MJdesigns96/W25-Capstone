@@ -31,6 +31,8 @@ export default function ProductLarge (props) {
                 localStorage.setItem('cart', strObj);
             } else {
                 cart[entry.id].qty++;
+                const strObj = JSON.stringify(cart);
+                localStorage.setItem('cart', strObj);
             }
         }
         var toastElList = [].slice.call(document.querySelectorAll('.toast'))

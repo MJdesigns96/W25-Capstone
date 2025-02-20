@@ -5,7 +5,7 @@ export default function ProductSmall (props) {
     // //render data from mongodb server and express. Transfer to a component later on.
     const [products, setProducts] = useState(props.props);
 
-    console.log(props);
+    // console.log(props);
 
     const addToCart = (entry) => {
         let cart = {};
@@ -32,6 +32,8 @@ export default function ProductSmall (props) {
                 localStorage.setItem('cart', strObj);
             } else {
                 cart[entry.id].qty++;
+                const strObj = JSON.stringify(cart);
+                localStorage.setItem('cart', strObj);
             }
         }
         var toastElList = [].slice.call(document.querySelectorAll('.toast'))

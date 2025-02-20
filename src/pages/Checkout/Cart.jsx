@@ -9,7 +9,7 @@ export default function Cart (props) {
     let items = {...localStorage};
     let userCart;
 
-    console.log(items);
+    // console.log(items);
     //create object for payment details
     let paymentDetails = {
         email: items.userEmail ? items.userEmail : "",
@@ -50,9 +50,6 @@ export default function Cart (props) {
     let shipping = 0;
     let total = 0;
 
-    const checkPayment = (e) => {
-        console.log()
-    }
     let checkoutItems = () => {
         // get item details from localstorage
         userCart = cart?.map(entry => (
@@ -115,7 +112,7 @@ export default function Cart (props) {
                     <h4 className="text-start">Contact</h4>
                     <div className="input-group">
                         <label htmlFor="email" className="input-group-text">Email: </label>
-                        <input type="text" name="email" id="email" className="form-control" value={items.userEmail ? items.userEmail : ""} />
+                        <input type="text" name="email" id="email" className="form-control" value={items.userEmail ? items.userEmail : ""} onChange={handleChange} />
                     </div>
                     <h4 className="text-start mt-3">Shipping Address</h4>
                     <div className="row">
